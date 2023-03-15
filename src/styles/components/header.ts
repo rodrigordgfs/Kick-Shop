@@ -3,6 +3,7 @@ import { styled } from "..";
 export const HeaderContainer = styled("header", {
   maxWidth: "100vw",
   width: "100%",
+  boxShadow: " 0px 5px 14px -1px rgba(0,0,0,0.1)",
 });
 
 export const HeaderBadgeContainer = styled("div", {
@@ -16,6 +17,8 @@ export const HeaderBadge = styled("div", {
   flexDirection: "row",
   justifyContent: "space-between",
   padding: "8px 4px",
+
+  "@media only screen and (max-device-width: 510px)": {},
 });
 
 export const HeaderBadgeDiscount = styled("p", {
@@ -127,26 +130,79 @@ export const MenuActionsIcon = styled("div", {
   justifyContent: "center",
   cursor: "pointer",
 
+  span: {
+    marginTop: "-30px",
+    marginRight: "-20px",
+    position: "absolute",
+    background: "$primary",
+    color: "$white",
+    padding: "4px 8px",
+    borderRadius: "4px",
+    fontSize: "14px",
+  },
+
   "&:hover": {
     background: "$zinc-100",
   },
 });
 
-export const MenuActionCart = styled("div", {
+export const HeaderMenuContainer = styled("div", {
+  maxWidth: "100vw",
+  width: "100%",
+});
+
+export const HeaderMenu = styled("div", {
+  margin: "0 auto",
+  maxWidth: 1170,
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  alignItems: "center",
+  padding: "0 4px",
+  gap: "16px",
+});
+
+export const CategoriesButton = styled("div", {
   display: "flex",
   alignItems: "center",
-  gap: "8px",
-  background: "$zinc-100",
-  borderRadius: "8px",
-  padding: "8px 16px",
+  color: "$white",
+  background: "$primary",
+  padding: "14px",
   cursor: "pointer",
 
-  div: {
-    span: {
-      background: "$primary",
-      color: "$white",
-      padding: "2px 10px",
-      borderRadius: "4px",
+  span: {
+    margin: "0 42px 0 16px",
+  },
+});
+
+export const Menu = styled("nav", {
+  ul: {
+    display: "flex",
+    gap: "16px",
+    listStyleType: "none",
+
+    li: {
+      textTransform: "uppercase",
+      fontWeight: 500,
+      cursor: "pointer",
+      color: "$zinc-900",
+
+      "&:hover": {
+        color: "$primary",
+      },
     },
+
+    "li:nth-child(1)": {
+      color: "$primary",
+    },
+  },
+});
+
+export const ContactUs = styled("div", {
+  color: "$zinc-900",
+  span: {
+    color: "$primary",
+    fontWeight: 500,
+    cursor: "pointer",
   },
 });
