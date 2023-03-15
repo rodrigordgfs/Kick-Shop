@@ -3,7 +3,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Kicks Shop - Home</title>
+        <title>Kick Shop - Home</title>
         <meta name="description" content="Kicks Shop - Home" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

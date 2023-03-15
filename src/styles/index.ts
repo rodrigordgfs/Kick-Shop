@@ -14,7 +14,9 @@ export const {
     colors: {
       primary: "#FF6650",
       white: "#FFFFFF",
-      text: "#181818",
+      "zinc-100": "#f4f4f5",
+      "zinc-200": "#e4e4e7",
+      "zinc-900": "#18181b",
     },
 
     fontSizes: {},

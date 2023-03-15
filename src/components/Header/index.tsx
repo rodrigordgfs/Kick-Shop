@@ -5,7 +5,19 @@ import {
   HeaderContainer,
   HeaderBadgeActions,
   HeaderBadgeActionsDivider,
+  HeaderMainContainer,
+  HeaderMain,
+  SearchForm,
+  SearchFormContainer,
+  MenuActionsContainer,
+  MenuActionsIcon,
+  MenuActionCart,
 } from "@/styles/components/header";
+import Image from "next/image";
+import Logo from "@/assets/logo.svg";
+import { MdPerson } from "react-icons/md";
+import { AiOutlineHeart } from "react-icons/ai";
+import { IoMdCart } from "react-icons/io";
 
 export function Header() {
   return (
@@ -28,6 +40,34 @@ export function Header() {
           </HeaderBadgeActions>
         </HeaderBadge>
       </HeaderBadgeContainer>
+      <HeaderMainContainer>
+        <HeaderMain>
+          <Image src={Logo} alt="" width={150} height={60} />
+          <SearchFormContainer>
+            <SearchForm>
+              <input type="text" placeholder="Search product here ..." />
+              <input type="submit" value="Search" />
+            </SearchForm>
+          </SearchFormContainer>
+          <MenuActionsContainer>
+            <MenuActionsIcon>
+              <MdPerson size={24} />
+            </MenuActionsIcon>
+            <MenuActionsIcon>
+              <AiOutlineHeart size={24} />
+            </MenuActionsIcon>
+            <MenuActionCart>
+              <IoMdCart size={24} />
+              <div>
+                <div>
+                  <span>4</span>
+                </div>
+                <p>My Cart</p>
+              </div>
+            </MenuActionCart>
+          </MenuActionsContainer>
+        </HeaderMain>
+      </HeaderMainContainer>
     </HeaderContainer>
   );
 }
