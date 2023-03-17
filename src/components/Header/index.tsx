@@ -16,6 +16,9 @@ import {
   CategoriesButton,
   Menu,
   ContactUs,
+  MenuTablet,
+  HeaderMenuMobileContainer,
+  HeaderMainMobileContainer,
 } from "@/styles/components/header";
 import Image from "next/image";
 import Logo from "@/assets/logo.svg";
@@ -23,7 +26,9 @@ import { MdPerson } from "react-icons/md";
 import { AiOutlineHeart } from "react-icons/ai";
 import { IoMdCart } from "react-icons/io";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
-import { BiCaretDown } from "react-icons/bi";
+import { BiCaretDown, BiMenu } from "react-icons/bi";
+import { SlMagnifier } from "react-icons/sl";
+import { MenuMobile } from "./components/MenuMobile";
 
 export function Header() {
   return (
@@ -67,13 +72,16 @@ export function Header() {
               <span>4</span>
             </MenuActionsIcon>
           </MenuActionsContainer>
+          <HeaderMainMobileContainer>
+            <MenuMobile />
+          </HeaderMainMobileContainer>
         </HeaderMain>
       </HeaderMainContainer>
       <HeaderMenuContainer>
         <HeaderMenu>
           <CategoriesButton>
             <BsFillGrid3X3GapFill size={24} />
-            <span>All Categories</span>
+            <span>Categorias</span>
             <BiCaretDown size={24} />
           </CategoriesButton>
           <Menu>
@@ -86,8 +94,11 @@ export function Header() {
             </ul>
           </Menu>
           <ContactUs>
-            Need Help? <span>Contact Us</span>
+            Preciso de ajuda? <span>Contate-nos</span>
           </ContactUs>
+          <HeaderMenuMobileContainer>
+            <MenuMobile />
+          </HeaderMenuMobileContainer>
         </HeaderMenu>
       </HeaderMenuContainer>
     </HeaderContainer>

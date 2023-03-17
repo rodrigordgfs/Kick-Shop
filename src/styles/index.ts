@@ -21,4 +21,9 @@ export const {
 
     fontSizes: {},
   },
+  media: {
+    mobile: "(max-width: 426px)",
+    tablet: "(max-width: 880px)",
+    desktop: "(min-width: 881px)",
+  },
 });

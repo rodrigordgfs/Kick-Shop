@@ -18,11 +18,17 @@ export const HeaderBadge = styled("div", {
   justifyContent: "space-between",
   padding: "8px 4px",
 
-  "@media only screen and (max-device-width: 510px)": {},
+  "@tablet": {
+    justifyContent: "center",
+    div: {
+      display: "none",
+    },
+  },
 });
 
 export const HeaderBadgeDiscount = styled("p", {
   color: "$white",
+  textAlign: "center",
 
   span: {
     fontWeight: "bold",
@@ -77,8 +83,26 @@ export const HeaderMain = styled("div", {
   gap: "16px",
 });
 
+export const HeaderMainMobileContainer = styled("div", {
+  "@desktop": {
+    display: "none",
+  },
+
+  "@tablet": {
+    display: "none",
+  },
+
+  "@mobile": {
+    display: "flex",
+  },
+});
+
 export const SearchFormContainer = styled("div", {
   flex: 1,
+
+  "@tablet": {
+    display: "none",
+  },
 });
 
 export const SearchForm = styled("form", {
@@ -118,6 +142,11 @@ export const MenuActionsContainer = styled("div", {
   flexDirection: "row",
   gap: "8px",
   alignItems: "center",
+  marginRight: "4px",
+
+  "@mobile": {
+    display: "none",
+  },
 });
 
 export const MenuActionsIcon = styled("div", {
@@ -149,6 +178,10 @@ export const MenuActionsIcon = styled("div", {
 export const HeaderMenuContainer = styled("div", {
   maxWidth: "100vw",
   width: "100%",
+
+  "@mobile": {
+    display: "none",
+  },
 });
 
 export const HeaderMenu = styled("div", {
@@ -160,6 +193,12 @@ export const HeaderMenu = styled("div", {
   alignItems: "center",
   padding: "0 4px",
   gap: "16px",
+});
+
+export const HeaderMenuMobileContainer = styled("div", {
+  "@desktop": {
+    display: "none",
+  },
 });
 
 export const CategoriesButton = styled("div", {
@@ -196,6 +235,16 @@ export const Menu = styled("nav", {
       color: "$primary",
     },
   },
+
+  "@tablet": {
+    display: "none",
+  },
+});
+
+export const MenuTablet = styled("div", {
+  display: "flex",
+  flexDirection: "row",
+  gap: "8px",
 });
 
 export const ContactUs = styled("div", {
@@ -204,5 +253,9 @@ export const ContactUs = styled("div", {
     color: "$primary",
     fontWeight: 500,
     cursor: "pointer",
+  },
+
+  "@tablet": {
+    display: "none",
   },
 });
