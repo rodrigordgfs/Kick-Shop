@@ -8,3 +8,10 @@ export const Container = styled("div", {
   minWidth: "100vw",
   background: "$white",
 });
+
+export const HomeContainer = styled("main", {
+  display: "flex",
+  flexDirection: "row",
+  maxWidth: "100vw",
+  width: "100%",
+});
