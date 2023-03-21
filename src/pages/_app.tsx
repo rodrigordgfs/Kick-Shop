@@ -6,6 +6,7 @@ import { CategoriesContextProvider } from "@/contexts/Categories";
 import { SettingsContextProvider } from "@/contexts/Settings";
 import { DrawerMenu } from "@/components/Header/components/DrawerMenu";
 import { ProductsContextProvider } from "@/contexts/Products";
+import { Footer } from "@/components/Footer";
 
 globalStyles();
 
@@ -18,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
             <DrawerMenu />
             <Header />
             <Component {...pageProps} />
+            <Footer />
           </Container>
         </CategoriesContextProvider>
       </ProductsContextProvider>
