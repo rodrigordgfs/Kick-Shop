@@ -11,6 +11,7 @@ import { FlashSales } from "@/components/Home/FlashSales";
 import { IProduct } from "@/interfaces/IProduct";
 import { PRODUCT_IMAGES } from "@/utils/productImages";
 import { ProductsContext } from "@/contexts/Products";
+import { TabsProducts } from "@/components/Home/TabsProducts";
 
 interface HomeProps {
   categories: ICategorie[];
@@ -38,6 +39,7 @@ export default function Home({ categories, products }: HomeProps) {
         <SliderProducts />
         <Benefits />
         <FlashSales />
+        <TabsProducts />
       </HomeContainer>
     </>
   );
