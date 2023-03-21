@@ -11,7 +11,6 @@ import * as Popover from "@radix-ui/react-popover";
 
 export function Categories() {
   const { categories } = useContext(CategoriesContext);
-  console.log(categories);
 
   return (
     <Popover.Root>

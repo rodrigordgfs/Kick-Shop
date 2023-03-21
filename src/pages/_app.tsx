@@ -3,16 +3,21 @@ import { Container } from "@/styles/pages/home";
 import { globalStyles } from "@/styles/global";
 import { Header } from "@/components/Header";
 import { CategoriesContextProvider } from "@/contexts/Categories";
+import { SettingsContextProvider } from "@/contexts/Settings";
+import { DrawerMenu } from "@/components/DrawerMenu";
 
 globalStyles();
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <CategoriesContextProvider>
-      <Container>
-        <Header />
-        <Component {...pageProps} />
-      </Container>
-    </CategoriesContextProvider>
+    <SettingsContextProvider>
+      <CategoriesContextProvider>
+        <Container>
+          <DrawerMenu />
+          <Header />
+          <Component {...pageProps} />
+        </Container>
+      </CategoriesContextProvider>
+    </SettingsContextProvider>
   );
 }
