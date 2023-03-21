@@ -13,22 +13,18 @@ import {
   MenuActionsIcon,
   HeaderMenuContainer,
   HeaderMenu,
-  CategoriesButton,
   Menu,
   ContactUs,
-  MenuTablet,
   HeaderMenuMobileContainer,
   HeaderMainMobileContainer,
-} from "@/styles/components/header";
+} from "@/styles/components/Header/header";
 import Image from "next/image";
 import Logo from "@/assets/logo.svg";
 import { MdPerson } from "react-icons/md";
 import { AiOutlineHeart } from "react-icons/ai";
 import { IoMdCart } from "react-icons/io";
-import { BsFillGrid3X3GapFill } from "react-icons/bs";
-import { BiCaretDown, BiMenu } from "react-icons/bi";
-import { SlMagnifier } from "react-icons/sl";
 import { MenuMobile } from "./components/MenuMobile";
+import { Categories } from "./components/Categories";
 
 export function Header() {
   return (
@@ -79,11 +75,7 @@ export function Header() {
       </HeaderMainContainer>
       <HeaderMenuContainer>
         <HeaderMenu>
-          <CategoriesButton>
-            <BsFillGrid3X3GapFill size={24} />
-            <span>Categorias</span>
-            <BiCaretDown size={24} />
-          </CategoriesButton>
+          <Categories />
           <Menu>
             <ul>
               <li>Inicio</li>

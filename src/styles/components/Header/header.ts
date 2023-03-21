@@ -1,4 +1,4 @@
-import { styled } from "..";
+import { styled } from "../..";
 
 export const HeaderContainer = styled("header", {
   maxWidth: "100vw",
@@ -198,19 +198,6 @@ export const HeaderMenu = styled("div", {
 export const HeaderMenuMobileContainer = styled("div", {
   "@desktop": {
     display: "none",
-  },
-});
-
-export const CategoriesButton = styled("div", {
-  display: "flex",
-  alignItems: "center",
-  color: "$white",
-  background: "$primary",
-  padding: "14px",
-  cursor: "pointer",
-
-  span: {
-    margin: "0 42px 0 16px",
   },
 });
 

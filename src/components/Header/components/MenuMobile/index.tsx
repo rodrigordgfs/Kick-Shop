@@ -1,4 +1,4 @@
-import { MenuActionsIcon, MenuTablet } from "@/styles/components/header";
+import { MenuActionsIcon, MenuTablet } from "@/styles/components/Header/header";
 import { BiMenu } from "react-icons/bi";
 import { SlMagnifier } from "react-icons/sl";
 
