@@ -11,7 +11,7 @@ export const Container = styled("div", {
 
 export const HomeContainer = styled("main", {
   display: "flex",
-  flexDirection: "row",
+  flexDirection: "column",
   maxWidth: "100vw",
   width: "100%",
 });

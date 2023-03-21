@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import Head from "next/head";
 import { useContext, useEffect } from "react";
 import { CategoriesContext } from "@/contexts/Categories";
+import { Benefits } from "@/components/Home/Benefits";
 
 interface HomeProps {
   categories: ICategories[];
@@ -28,6 +29,7 @@ export default function Home({ categories }: HomeProps) {
       </Head>
       <HomeContainer>
         <SliderProducts />
+        <Benefits />
       </HomeContainer>
     </>
   );
