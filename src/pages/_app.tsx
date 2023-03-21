@@ -5,19 +5,22 @@ import { Header } from "@/components/Header";
 import { CategoriesContextProvider } from "@/contexts/Categories";
 import { SettingsContextProvider } from "@/contexts/Settings";
 import { DrawerMenu } from "@/components/Header/components/DrawerMenu";
+import { ProductsContextProvider } from "@/contexts/Products";
 
 globalStyles();
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <SettingsContextProvider>
-      <CategoriesContextProvider>
-        <Container>
-          <DrawerMenu />
-          <Header />
-          <Component {...pageProps} />
-        </Container>
-      </CategoriesContextProvider>
+      <ProductsContextProvider>
+        <CategoriesContextProvider>
+          <Container>
+            <DrawerMenu />
+            <Header />
+            <Component {...pageProps} />
+          </Container>
+        </CategoriesContextProvider>
+      </ProductsContextProvider>
     </SettingsContextProvider>
   );
 }

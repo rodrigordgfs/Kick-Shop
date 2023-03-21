@@ -1,5 +1,5 @@
 import { SliderProducts } from "@/components/Home/SliderProducts";
-import { ICategories } from "@/interfaces/ICategories";
+import { ICategorie } from "@/interfaces/ICategories";
 import { HomeContainer } from "@/styles/pages/Home";
 import { GetStaticProps } from "next";
 import { v4 as uuidv4 } from "uuid";
@@ -7,17 +7,24 @@ import Head from "next/head";
 import { useContext, useEffect } from "react";
 import { CategoriesContext } from "@/contexts/Categories";
 import { Benefits } from "@/components/Home/Benefits";
+import { FlashSales } from "@/components/Home/FlashSales";
+import { IProduct } from "@/interfaces/IProduct";
+import { PRODUCT_IMAGES } from "@/utils/productImages";
+import { ProductsContext } from "@/contexts/Products";
 
 interface HomeProps {
-  categories: ICategories[];
+  categories: ICategorie[];
+  products: IProduct[];
 }
 
-export default function Home({ categories }: HomeProps) {
+export default function Home({ categories, products }: HomeProps) {
   const { handleUpdateCategories } = useContext(CategoriesContext);
+  const { handleUpdateProducts } = useContext(ProductsContext);
 
   useEffect(() => {
     handleUpdateCategories(categories);
-  }, [categories, handleUpdateCategories]);
+    handleUpdateProducts(products);
+  }, [categories, products, handleUpdateCategories, handleUpdateProducts]);
 
   return (
     <>
@@ -30,25 +37,42 @@ export default function Home({ categories }: HomeProps) {
       <HomeContainer>
         <SliderProducts />
         <Benefits />
+        <FlashSales />
       </HomeContainer>
     </>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetch("https://fakestoreapi.com/products/categories");
-  const data = await response.json();
+  const categorieResponse = await fetch(
+    "https://fakestoreapi.com/products/categories"
+  );
+  const categorieData = await categorieResponse.json();
 
-  const categories = data.map((category: string) => {
+  const categories = categorieData.map((category: string) => {
     return {
       id: uuidv4(),
       name: category,
     };
-  }) as ICategories[];
+  }) as ICategorie[];
+
+  const productsResponse = await fetch(
+    "https://fakestoreapi.com/products?limit=8"
+  );
+  const productsData = await productsResponse.json();
+
+  const products = productsData.map((product: IProduct) => {
+    return {
+      ...product,
+      image: PRODUCT_IMAGES.find((image) => image.id === product.id)?.image,
+      oldPrice: product.price + 10,
+    };
+  });
 
   return {
     props: {
       categories,
+      products,
     },
     revalidate: 60 * 60 * 2,
   };

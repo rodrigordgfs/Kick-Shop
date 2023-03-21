@@ -1,9 +1,9 @@
-import { ICategories } from "@/interfaces/ICategories";
+import { ICategorie } from "@/interfaces/ICategories";
 import { ReactNode, createContext, useState } from "react";
 
 interface ICategoriesContext {
-  categories: ICategories[];
-  handleUpdateCategories: (categories: ICategories[]) => void;
+  categories: ICategorie[];
+  handleUpdateCategories: (categories: ICategorie[]) => void;
 }
 
 interface ICategoriesContextProps {
@@ -15,9 +15,9 @@ export const CategoriesContext = createContext({} as ICategoriesContext);
 export function CategoriesContextProvider({
   children,
 }: ICategoriesContextProps) {
-  const [categories, setCategories] = useState<ICategories[]>([]);
+  const [categories, setCategories] = useState<ICategorie[]>([]);
 
-  function handleUpdateCategories(categories: ICategories[]) {
+  function handleUpdateCategories(categories: ICategorie[]) {
     setCategories(categories);
   }
 
