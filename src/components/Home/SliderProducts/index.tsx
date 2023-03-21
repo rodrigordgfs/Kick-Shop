@@ -8,7 +8,7 @@ import {
   SliderItemImageContainer,
   SliderItemInfo,
   SliderItemButtomContainer,
-} from "@/styles/components/Home/sliderProducts";
+} from "@/styles/pages/Home/components/sliderProducts";
 import Image from "next/image";
 import { PRODUCT_IMAGES } from "@/utils/productImages";
 import { formatCurrencyBRL } from "@/utils/currencyFormat";

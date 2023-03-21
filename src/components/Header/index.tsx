@@ -17,7 +17,7 @@ import {
   ContactUs,
   HeaderMenuMobileContainer,
   HeaderMainMobileContainer,
-} from "@/styles/components/Header/header";
+} from "@/styles/components/Header";
 import Image from "next/image";
 import Logo from "@/assets/logo.svg";
 import { MdPerson } from "react-icons/md";

@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import { Container } from "@/styles/pages/home";
+import { Container } from "@/styles/pages/Home";
 import { globalStyles } from "@/styles/global";
 import { Header } from "@/components/Header";
 import { CategoriesContextProvider } from "@/contexts/Categories";

@@ -1,6 +1,6 @@
 import { SliderProducts } from "@/components/Home/SliderProducts";
 import { ICategories } from "@/interfaces/ICategories";
-import { HomeContainer } from "@/styles/pages/home";
+import { HomeContainer } from "@/styles/pages/Home";
 import { GetStaticProps } from "next";
 import { v4 as uuidv4 } from "uuid";
 import Head from "next/head";

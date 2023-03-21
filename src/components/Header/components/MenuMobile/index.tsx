@@ -1,5 +1,5 @@
 import { SettingsContext } from "@/contexts/Settings";
-import { MenuActionsIcon, MenuTablet } from "@/styles/components/Header/header";
+import { MenuActionsIcon, MenuTablet } from "@/styles/components/Header";
 import { useContext } from "react";
 import { BiMenu } from "react-icons/bi";
 import { SlMagnifier } from "react-icons/sl";
