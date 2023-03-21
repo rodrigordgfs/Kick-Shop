@@ -5,7 +5,7 @@ import {
   DrawerHeader,
   ButtonLoginRegister,
   DrawerMenuList,
-} from "@/styles/components/Drawer";
+} from "@/styles/components/Header/components/drawer";
 import { useContext } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import Drawer from "react-modern-drawer";

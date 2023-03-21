@@ -4,7 +4,7 @@ import { globalStyles } from "@/styles/global";
 import { Header } from "@/components/Header";
 import { CategoriesContextProvider } from "@/contexts/Categories";
 import { SettingsContextProvider } from "@/contexts/Settings";
-import { DrawerMenu } from "@/components/DrawerMenu";
+import { DrawerMenu } from "@/components/Header/components/DrawerMenu";
 
 globalStyles();
 
