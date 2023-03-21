@@ -22,8 +22,8 @@ export default function Home({ categories, products }: HomeProps) {
   const { handleUpdateProducts } = useContext(ProductsContext);
 
   useEffect(() => {
-    handleUpdateCategories(categories);
     handleUpdateProducts(products);
+    handleUpdateCategories(categories);
   }, [categories, products, handleUpdateCategories, handleUpdateProducts]);
 
   return (

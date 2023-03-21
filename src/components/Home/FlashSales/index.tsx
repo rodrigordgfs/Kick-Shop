@@ -13,6 +13,7 @@ import { Product } from "@/components/Product";
 
 export function FlashSales() {
   const { products } = useContext(ProductsContext);
+
   const productsList = [products[0], products[1], products[2], products[3]];
 
   return (
@@ -27,10 +28,9 @@ export function FlashSales() {
         </FlashSalesHeaderActions>
       </FlashSalesHeader>
       <FlashSalesBody>
-        {productsList &&
-          productsList.map((product) => (
-            <Product product={product} key={product.id} />
-          ))}
+        {productsList.map((product) => {
+          return product && <Product product={product} key={product.id} />;
+        })}
       </FlashSalesBody>
     </FlashSalesContainer>
   );
