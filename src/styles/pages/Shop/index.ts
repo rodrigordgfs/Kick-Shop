@@ -34,3 +34,13 @@ export const ShopContainer = styled("div", {
   padding: "32px 0",
   gap: "32px",
 });
+
+export const ShopProductsFilterContainer = styled("div", {
+  "@tablet": {
+    display: "none",
+  },
+
+  "@mobile": {
+    display: "none",
+  },
+});

@@ -6,14 +6,6 @@ export const ProductsFilterContainer = styled("div", {
   gap: "16px",
   maxWidth: "300px",
   width: "100%",
-
-  "@tablet": {
-    display: "none",
-  },
-
-  "@mobile": {
-    display: "none",
-  },
 });
 
 export const CategoriesFilter = styled("ul", {

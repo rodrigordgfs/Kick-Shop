@@ -1,8 +1,10 @@
 import { ReactNode, createContext, useState } from "react";
 
 interface ISettingsContext {
-  isDrawerOpen: boolean;
-  toogleDrawer: () => void;
+  isDrawerMenuOpen: boolean;
+  isDrawerFilterProductOpen: boolean;
+  toogleDrawerMenu: () => void;
+  toogleDrawerFilterProduct: () => void;
 }
 
 interface ISettingsContextProps {
@@ -12,14 +14,27 @@ interface ISettingsContextProps {
 export const SettingsContext = createContext({} as ISettingsContext);
 
 export function SettingsContextProvider({ children }: ISettingsContextProps) {
-  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+  const [isDrawerMenuOpen, setIsDrawerMenuOpen] = useState<boolean>(false);
+  const [isDrawerFilterProductOpen, setIsDrawerFilterProductOpen] =
+    useState<boolean>(false);
 
-  function toogleDrawer() {
-    setIsDrawerOpen((prevState) => !prevState);
+  function toogleDrawerMenu() {
+    setIsDrawerMenuOpen((prevState) => !prevState);
+  }
+
+  function toogleDrawerFilterProduct() {
+    setIsDrawerFilterProductOpen((prevState) => !prevState);
   }
 
   return (
-    <SettingsContext.Provider value={{ isDrawerOpen, toogleDrawer }}>
+    <SettingsContext.Provider
+      value={{
+        isDrawerMenuOpen,
+        isDrawerFilterProductOpen,
+        toogleDrawerMenu,
+        toogleDrawerFilterProduct,
+      }}
+    >
       {children}
     </SettingsContext.Provider>
   );

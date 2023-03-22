@@ -12,19 +12,19 @@ import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 
 export function DrawerMenu() {
-  const { isDrawerOpen, toogleDrawer } = useContext(SettingsContext);
+  const { isDrawerMenuOpen, toogleDrawerMenu } = useContext(SettingsContext);
 
   return (
     <Drawer
-      open={isDrawerOpen}
-      onClose={toogleDrawer}
+      open={isDrawerMenuOpen}
+      onClose={toogleDrawerMenu}
       direction="left"
       size={300}
     >
       <DrawerContainer>
         <DrawerHeader>
           <p>Menu</p>
-          <AiOutlineClose size={18} onClick={toogleDrawer} />
+          <AiOutlineClose size={18} onClick={toogleDrawerMenu} />
         </DrawerHeader>
         <DrawerBody>
           <ButtonLoginRegister>

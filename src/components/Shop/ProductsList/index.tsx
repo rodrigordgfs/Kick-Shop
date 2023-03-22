@@ -13,9 +13,11 @@ import { Product } from "@/components/Product";
 import { BsFilter } from "react-icons/bs";
 import { FilterQuantityProducts } from "./components/FilterQuantityProducts";
 import { FilterSortingProducts } from "./components/FilterSortingProducts";
+import { SettingsContext } from "@/contexts/Settings";
 
 export function ProductsList() {
   const { products } = useContext(ProductsContext);
+  const { toogleDrawerFilterProduct } = useContext(SettingsContext);
   const [productsList, setProductsList] = useState<IProduct[]>([]);
 
   useEffect(() => {
@@ -29,7 +31,7 @@ export function ProductsList() {
           Showing {productsList.length} of {products.length} results
         </p>
         <ProductListFilterContainer>
-          <FilterButtonMobile>
+          <FilterButtonMobile onClick={toogleDrawerFilterProduct}>
             <p>Filter</p>
             <BsFilter size={18} />
           </FilterButtonMobile>

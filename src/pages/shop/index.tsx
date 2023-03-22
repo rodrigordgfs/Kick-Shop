@@ -2,7 +2,11 @@ import { useContext, useEffect } from "react";
 import { ProductsFilter } from "@/components/Shop/ProductsFilter";
 import { ProductsList } from "@/components/Shop/ProductsList";
 import { ICategorie } from "@/interfaces/ICategories";
-import { PageBanner, ShopContainer } from "@/styles/pages/Shop";
+import {
+  PageBanner,
+  ShopContainer,
+  ShopProductsFilterContainer,
+} from "@/styles/pages/Shop";
 import { GetStaticProps } from "next";
 import { v4 as uuidv4 } from "uuid";
 import Head from "next/head";
@@ -40,7 +44,9 @@ export default function Shop({ categories, products }: ShopProps) {
         </div>
       </PageBanner>
       <ShopContainer>
-        <ProductsFilter />
+        <ShopProductsFilterContainer>
+          <ProductsFilter />
+        </ShopProductsFilterContainer>
         <ProductsList />
       </ShopContainer>
     </>
