@@ -6,6 +6,14 @@ export const ProductsFilterContainer = styled("div", {
   gap: "16px",
   maxWidth: "300px",
   width: "100%",
+
+  "@tablet": {
+    display: "none",
+  },
+
+  "@mobile": {
+    display: "none",
+  },
 });
 
 export const CategoriesFilter = styled("ul", {
@@ -59,4 +67,14 @@ export const PriceFilter = styled("div", {
     color: "$zinc-500",
     fontSize: "14px",
   },
+});
+
+export const ResetFiltersButton = styled("button", {
+  background: "$primary",
+  border: "none",
+  borderRadius: "10px",
+  color: "$white",
+  cursor: "pointer",
+  fontSize: "16px",
+  padding: "8px 16px",
 });

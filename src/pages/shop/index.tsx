@@ -7,17 +7,23 @@ import { GetStaticProps } from "next";
 import { v4 as uuidv4 } from "uuid";
 import Head from "next/head";
 import { CategoriesContext } from "@/contexts/Categories";
+import { IProduct } from "@/interfaces/IProduct";
+import { PRODUCT_IMAGES } from "@/utils/productImages";
+import { ProductsContext } from "@/contexts/Products";
 
 interface ShopProps {
   categories: ICategorie[];
+  products: IProduct[];
 }
 
-export default function Shop({ categories }: ShopProps) {
+export default function Shop({ categories, products }: ShopProps) {
   const { handleUpdateCategories } = useContext(CategoriesContext);
+  const { handleUpdateProducts } = useContext(ProductsContext);
 
   useEffect(() => {
     handleUpdateCategories(categories);
-  }, [categories, handleUpdateCategories]);
+    handleUpdateProducts(products);
+  }, [categories, products, handleUpdateCategories, handleUpdateProducts]);
 
   return (
     <>
@@ -54,23 +60,21 @@ export const getStaticProps: GetStaticProps = async () => {
     };
   }) as ICategorie[];
 
-  // const productsResponse = await fetch(
-  //   "https://fakestoreapi.com/products?limit=8"
-  // );
-  // const productsData = await productsResponse.json();
+  const productsResponse = await fetch("https://fakestoreapi.com/products");
+  const productsData = await productsResponse.json();
 
-  // const products = productsData.map((product: IProduct) => {
-  //   return {
-  //     ...product,
-  //     image: PRODUCT_IMAGES.find((image) => image.id === product.id)?.image,
-  //     oldPrice: product.price + 10,
-  //   };
-  // });
+  const products = productsData.map((product: IProduct) => {
+    return {
+      ...product,
+      image: PRODUCT_IMAGES.find((image) => image.id === product.id)?.image,
+      oldPrice: product.price + 10,
+    };
+  });
 
   return {
     props: {
       categories,
-      // products,
+      products,
     },
     revalidate: 60 * 60 * 2,
   };

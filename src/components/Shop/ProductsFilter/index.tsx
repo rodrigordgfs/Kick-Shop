@@ -5,6 +5,7 @@ import {
   PriceFilter,
   ProductsFilterContainer,
   RatingFilter,
+  ResetFiltersButton,
 } from "@/styles/pages/Shop/components/productsFilter";
 import { CategoriesContext } from "@/contexts/Categories";
 import { AiOutlineRight } from "react-icons/ai";
@@ -93,6 +94,7 @@ export function ProductsFilter() {
           </label>
         </PriceFilter>
       </Expandable>
+      <ResetFiltersButton>Reset filters</ResetFiltersButton>
     </ProductsFilterContainer>
   );
 }

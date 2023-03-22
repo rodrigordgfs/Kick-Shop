@@ -13,8 +13,8 @@ interface ExpandableProps {
 
 export function Expandable({ title, children }: ExpandableProps) {
   return (
-    <Accordion.Root type="single">
-      <Accordion.Item value="item-1">
+    <Accordion.Root type="single" collapsible>
+      <Accordion.Item value="item">
         <Accordion.Header>
           <ExpandableHeader>
             <p>{title}</p>
