@@ -25,8 +25,11 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { IoMdCart } from "react-icons/io";
 import { MenuMobile } from "./components/MenuMobile";
 import { Categories } from "./components/Categories";
+import { useRouter } from "next/router";
 
 export function Header() {
+  const router = useRouter();
+
   return (
     <HeaderContainer>
       <HeaderBadgeContainer>
@@ -78,8 +81,8 @@ export function Header() {
           <Categories />
           <Menu>
             <ul>
-              <li>Inicio</li>
-              <li>Loja</li>
+              <li onClick={() => router.push("/")}>Inicio</li>
+              <li onClick={() => router.push("/shop")}>Loja</li>
               <li>Ofertas especiais</li>
               <li>Sobre</li>
               <li>FAQS</li>
