@@ -5,10 +5,10 @@ import { BiMenu } from "react-icons/bi";
 import { SlMagnifier } from "react-icons/sl";
 
 export function MenuMobile() {
-  const { toogleDrawer } = useContext(SettingsContext);
+  const { toogleDrawerMenu } = useContext(SettingsContext);
 
   function handleMenu() {
-    toogleDrawer();
+    toogleDrawerMenu();
   }
 
   return (
