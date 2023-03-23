@@ -9,7 +9,7 @@ import {
 import { Countdown } from "./components/Countdown";
 import { ProductsContext } from "@/contexts/Products";
 import Image from "next/image";
-import { Product } from "@/components/Product";
+import { ProductCard } from "@/components/ProductCard";
 
 export function FlashSales() {
   const { products } = useContext(ProductsContext);
@@ -29,7 +29,7 @@ export function FlashSales() {
       </FlashSalesHeader>
       <FlashSalesBody>
         {productsList.map((product) => {
-          return product && <Product product={product} key={product.id} />;
+          return product && <ProductCard product={product} key={product.id} />;
         })}
       </FlashSalesBody>
     </FlashSalesContainer>

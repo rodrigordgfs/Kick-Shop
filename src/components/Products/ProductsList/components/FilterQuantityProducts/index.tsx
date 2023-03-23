@@ -1,7 +1,7 @@
 import {
   FilterQuantityProductsContent,
   FilterQuantityProductsTrigger,
-} from "@/styles/pages/Shop/components/filterQuantityProducts";
+} from "@/styles/pages/Products/components/filterQuantityProducts";
 import * as Select from "@radix-ui/react-select";
 import { AiOutlineDown } from "react-icons/ai";
 

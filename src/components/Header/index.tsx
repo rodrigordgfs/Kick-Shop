@@ -82,7 +82,7 @@ export function Header() {
           <Menu>
             <ul>
               <li onClick={() => router.push("/")}>Inicio</li>
-              <li onClick={() => router.push("/shop")}>Loja</li>
+              <li onClick={() => router.push("/products")}>Produtos</li>
               <li>Ofertas especiais</li>
               <li>Sobre</li>
               <li>FAQS</li>

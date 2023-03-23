@@ -6,7 +6,7 @@ import {
   ProductsFilterContainer,
   RatingFilter,
   ResetFiltersButton,
-} from "@/styles/pages/Shop/components/productsFilter";
+} from "@/styles/pages/Products/components/productsFilter";
 import { CategoriesContext } from "@/contexts/Categories";
 import { AiOutlineRight } from "react-icons/ai";
 import StarRatings from "react-star-ratings";

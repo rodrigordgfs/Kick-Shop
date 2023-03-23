@@ -1,12 +1,12 @@
 import { useContext, useEffect } from "react";
-import { ProductsFilter } from "@/components/Shop/ProductsFilter";
-import { ProductsList } from "@/components/Shop/ProductsList";
+import { ProductsFilter } from "@/components/Products/ProductsFilter";
+import { ProductsList } from "@/components/Products/ProductsList";
 import { ICategorie } from "@/interfaces/ICategories";
 import {
   PageBanner,
-  ShopContainer,
-  ShopProductsFilterContainer,
-} from "@/styles/pages/Shop";
+  ProductsContainer,
+  ProductsProductsFilterContainer,
+} from "@/styles/pages/Products";
 import { GetStaticProps } from "next";
 import { v4 as uuidv4 } from "uuid";
 import Head from "next/head";
@@ -15,12 +15,12 @@ import { IProduct } from "@/interfaces/IProduct";
 import { PRODUCT_IMAGES } from "@/utils/productImages";
 import { ProductsContext } from "@/contexts/Products";
 
-interface ShopProps {
+interface ProductsProps {
   categories: ICategorie[];
   products: IProduct[];
 }
 
-export default function Shop({ categories, products }: ShopProps) {
+export default function Products({ categories, products }: ProductsProps) {
   const { handleUpdateCategories } = useContext(CategoriesContext);
   const { handleUpdateProducts } = useContext(ProductsContext);
 
@@ -32,23 +32,23 @@ export default function Shop({ categories, products }: ShopProps) {
   return (
     <>
       <Head>
-        <title>Kick Shop - Loja</title>
-        <meta name="description" content="Kicks Shop - Home" />
+        <title>Kick Shop - Produtos</title>
+        <meta name="description" content="Kicks Shop - Produtos" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageBanner>
-        <h3>Loja</h3>
+        <h3>Produtos</h3>
         <div>
-          <span>Inicio</span> | <span>Loja</span>
+          <span>Inicio</span> | <span>Produtos</span>
         </div>
       </PageBanner>
-      <ShopContainer>
-        <ShopProductsFilterContainer>
+      <ProductsContainer>
+        <ProductsProductsFilterContainer>
           <ProductsFilter />
-        </ShopProductsFilterContainer>
+        </ProductsProductsFilterContainer>
         <ProductsList />
-      </ShopContainer>
+      </ProductsContainer>
     </>
   );
 }

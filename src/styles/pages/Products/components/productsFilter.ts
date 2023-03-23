@@ -4,8 +4,6 @@ export const ProductsFilterContainer = styled("div", {
   display: "flex",
   flexDirection: "column",
   gap: "16px",
-  maxWidth: "300px",
-  width: "100%",
 });
 
 export const CategoriesFilter = styled("ul", {

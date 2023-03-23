@@ -1,7 +1,7 @@
 import {
   FilterSortingProductsContent,
   FilterSortingProductsTrigger,
-} from "@/styles/pages/Shop/components/filterSortingProducts";
+} from "@/styles/pages/Products/components/filterSortingProducts";
 import * as Select from "@radix-ui/react-select";
 import { AiOutlineDown } from "react-icons/ai";
 

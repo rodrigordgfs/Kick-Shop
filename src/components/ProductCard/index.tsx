@@ -1,39 +1,39 @@
 import { IProduct } from "@/interfaces/IProduct";
 import {
-  ProductContainer,
-  ProductImage,
-  ProductPercentDiscount,
-  ProductPrices,
-  ProductRating,
-  ProductTitle,
+  ProductCardContainer,
+  ProductCardImage,
+  ProductCardPercentDiscount,
+  ProductCardPrices,
+  ProductCardRating,
+  ProductCardTitle,
 } from "@/styles/components/product";
 import { formatCurrencyBRL } from "@/utils/currencyFormat";
 import StarRatings from "react-star-ratings";
 import Image from "next/image";
 
-interface ProductProps {
+interface ProductCardProps {
   product: IProduct;
 }
 
-export function Product({ product }: ProductProps) {
+export function ProductCard({ product }: ProductCardProps) {
   const discount = 100 - Math.floor((product.price * 100) / product.oldPrice);
 
   return (
-    <ProductContainer>
-      <ProductImage>
+    <ProductCardContainer>
+      <ProductCardImage>
         {discount > 0 && (
-          <ProductPercentDiscount>
+          <ProductCardPercentDiscount>
             {String(discount).padStart(2, "0")}%
-          </ProductPercentDiscount>
+          </ProductCardPercentDiscount>
         )}
         <Image src={product.image} alt="" width={120} height={150} />
-      </ProductImage>
-      <ProductTitle>{product.title}</ProductTitle>
-      <ProductPrices>
+      </ProductCardImage>
+      <ProductCardTitle>{product.title}</ProductCardTitle>
+      <ProductCardPrices>
         <span>{formatCurrencyBRL.format(product.price)}</span>
         <span>{formatCurrencyBRL.format(product.oldPrice)}</span>
-      </ProductPrices>
-      <ProductRating>
+      </ProductCardPrices>
+      <ProductCardRating>
         <StarRatings
           rating={product.rating.rate}
           starRatedColor="#FF6650"
@@ -41,7 +41,7 @@ export function Product({ product }: ProductProps) {
           starSpacing="1px"
         />
         <span>({product.rating.count})</span>
-      </ProductRating>
-    </ProductContainer>
+      </ProductCardRating>
+    </ProductCardContainer>
   );
 }

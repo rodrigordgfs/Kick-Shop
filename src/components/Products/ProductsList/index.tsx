@@ -7,9 +7,9 @@ import {
   ProductsListContainer,
   ProductsListHeader,
   ProductsListWrapper,
-} from "@/styles/pages/Shop/components/productsList";
+} from "@/styles/pages/Products/components/productsList";
 import { IProduct } from "@/interfaces/IProduct";
-import { Product } from "@/components/Product";
+import { ProductCard } from "@/components/ProductCard";
 import { BsFilter } from "react-icons/bs";
 import { FilterQuantityProducts } from "./components/FilterQuantityProducts";
 import { FilterSortingProducts } from "./components/FilterSortingProducts";
@@ -44,7 +44,7 @@ export function ProductsList() {
       <ProductsListWrapper>
         {products &&
           productsList.map((product) => (
-            <Product product={product} key={product.id} />
+            <ProductCard product={product} key={product.id} />
           ))}
       </ProductsListWrapper>
     </ProductsListContainer>

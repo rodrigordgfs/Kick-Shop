@@ -13,6 +13,7 @@ export const ExpandableHeader = styled(Accordion.Trigger, {
   alignItems: "center",
   cursor: "pointer",
   color: "$zinc-500",
+  gap: "16px",
 
   p: {
     fontSize: "16px",

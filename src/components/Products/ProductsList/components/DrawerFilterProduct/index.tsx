@@ -7,8 +7,8 @@ import {
   DrawerBody,
   DrawerContainer,
   DrawerHeader,
-} from "@/styles/pages/Shop/components/drawerFilterProduct";
-import { ProductsFilter } from "@/components/Shop/ProductsFilter";
+} from "@/styles/pages/Products/components/drawerFilterProduct";
+import { ProductsFilter } from "@/components/Products/ProductsFilter";
 
 export function DrawerFilterProduct() {
   const { isDrawerFilterProductOpen, toogleDrawerFilterProduct } =

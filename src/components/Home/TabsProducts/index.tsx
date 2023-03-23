@@ -10,7 +10,7 @@ import {
 import * as Tabs from "@radix-ui/react-tabs";
 import { ProductsContext } from "@/contexts/Products";
 import { IProduct } from "@/interfaces/IProduct";
-import { Product } from "@/components/Product";
+import { Product } from "@/components/ProductCard";
 
 export function TabsProducts() {
   const { products } = useContext(ProductsContext);

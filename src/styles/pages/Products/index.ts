@@ -24,7 +24,7 @@ export const PageBanner = styled("div", {
   },
 });
 
-export const ShopContainer = styled("div", {
+export const ProductsContainer = styled("div", {
   margin: "0 auto",
   maxWidth: 1170,
   width: "100%",
@@ -35,7 +35,10 @@ export const ShopContainer = styled("div", {
   gap: "32px",
 });
 
-export const ShopProductsFilterContainer = styled("div", {
+export const ProductsProductsFilterContainer = styled("div", {
+  maxWidth: "250px",
+  width: "100%",
+
   "@tablet": {
     display: "none",
   },

@@ -7,7 +7,7 @@ import { SettingsContextProvider } from "@/contexts/Settings";
 import { DrawerMenu } from "@/components/Header/components/DrawerMenu";
 import { ProductsContextProvider } from "@/contexts/Products";
 import { Footer } from "@/components/Footer";
-import { DrawerFilterProduct } from "@/components/Shop/ProductsList/components/DrawerFilterProduct";
+import { DrawerFilterProduct } from "@/components/Products/ProductsList/components/DrawerFilterProduct";
 
 globalStyles();
 

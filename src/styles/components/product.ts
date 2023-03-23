@@ -1,6 +1,6 @@
 import { styled } from "@/styles";
 
-export const ProductContainer = styled("div", {
+export const ProductCardContainer = styled("div", {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -15,7 +15,7 @@ export const ProductContainer = styled("div", {
   },
 });
 
-export const ProductImage = styled("div", {
+export const ProductCardImage = styled("div", {
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
@@ -27,7 +27,7 @@ export const ProductImage = styled("div", {
   position: "relative",
 });
 
-export const ProductPercentDiscount = styled("span", {
+export const ProductCardPercentDiscount = styled("span", {
   position: "absolute",
   top: "16px",
   right: "16px",
@@ -38,7 +38,7 @@ export const ProductPercentDiscount = styled("span", {
   fontSize: "12px",
 });
 
-export const ProductTitle = styled("h3", {
+export const ProductCardTitle = styled("h3", {
   fontSize: "16px",
   textAlign: "center",
   marginTop: "8px",
@@ -48,7 +48,7 @@ export const ProductTitle = styled("h3", {
   maxWidth: "200px",
 });
 
-export const ProductPrices = styled("div", {
+export const ProductCardPrices = styled("div", {
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
@@ -68,7 +68,7 @@ export const ProductPrices = styled("div", {
   },
 });
 
-export const ProductRating = styled("div", {
+export const ProductCardRating = styled("div", {
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
