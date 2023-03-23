@@ -10,7 +10,7 @@ import {
 import * as Tabs from "@radix-ui/react-tabs";
 import { ProductsContext } from "@/contexts/Products";
 import { IProduct } from "@/interfaces/IProduct";
-import { Product } from "@/components/ProductCard";
+import { ProductCard } from "@/components/ProductCard";
 
 export function TabsProducts() {
   const { products } = useContext(ProductsContext);
@@ -42,27 +42,37 @@ export function TabsProducts() {
         <TabSpacer></TabSpacer>
         <TabsProductsContent value="NewArrival">
           {suffleArray(products).map((product) => {
-            return product && <Product product={product} key={product.id} />;
+            return (
+              product && <ProductCard product={product} key={product.id} />
+            );
           })}
         </TabsProductsContent>
         <TabsProductsContent value="BestSeller">
           {suffleArray(products).map((product) => {
-            return product && <Product product={product} key={product.id} />;
+            return (
+              product && <ProductCard product={product} key={product.id} />
+            );
           })}
         </TabsProductsContent>
         <TabsProductsContent value="Featured">
           {suffleArray(products).map((product) => {
-            return product && <Product product={product} key={product.id} />;
+            return (
+              product && <ProductCard product={product} key={product.id} />
+            );
           })}
         </TabsProductsContent>
         <TabsProductsContent value="TopRated">
           {suffleArray(products).map((product) => {
-            return product && <Product product={product} key={product.id} />;
+            return (
+              product && <ProductCard product={product} key={product.id} />
+            );
           })}
         </TabsProductsContent>
         <TabsProductsContent value="MostPopular">
           {suffleArray(products).map((product) => {
-            return product && <Product product={product} key={product.id} />;
+            return (
+              product && <ProductCard product={product} key={product.id} />
+            );
           })}
         </TabsProductsContent>
       </Tabs.Root>

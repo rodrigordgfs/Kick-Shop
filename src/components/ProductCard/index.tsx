@@ -2,6 +2,7 @@ import { IProduct } from "@/interfaces/IProduct";
 import {
   ProductCardContainer,
   ProductCardImage,
+  ProductCardImageContiner,
   ProductCardPercentDiscount,
   ProductCardPrices,
   ProductCardRating,
@@ -9,7 +10,6 @@ import {
 } from "@/styles/components/product";
 import { formatCurrencyBRL } from "@/utils/currencyFormat";
 import StarRatings from "react-star-ratings";
-import Image from "next/image";
 
 interface ProductCardProps {
   product: IProduct;
@@ -20,14 +20,14 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <ProductCardContainer>
-      <ProductCardImage>
+      <ProductCardImageContiner>
         {discount > 0 && (
           <ProductCardPercentDiscount>
             {String(discount).padStart(2, "0")}%
           </ProductCardPercentDiscount>
         )}
-        <Image src={product.image} alt="" width={120} height={150} />
-      </ProductCardImage>
+        <ProductCardImage src={product.image} alt="" />
+      </ProductCardImageContiner>
       <ProductCardTitle>{product.title}</ProductCardTitle>
       <ProductCardPrices>
         <span>{formatCurrencyBRL.format(product.price)}</span>

@@ -1,4 +1,5 @@
 import { styled } from "@/styles";
+import Image from "next/image";
 
 export const ProductCardContainer = styled("div", {
   display: "flex",
@@ -15,8 +16,9 @@ export const ProductCardContainer = styled("div", {
   },
 });
 
-export const ProductCardImage = styled("div", {
+export const ProductCardImageContiner = styled("div", {
   display: "flex",
+  height: "150px",
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "center",
@@ -25,6 +27,13 @@ export const ProductCardImage = styled("div", {
   borderRadius: "16px",
   padding: "16px",
   position: "relative",
+});
+
+export const ProductCardImage = styled(Image, {
+  maxWidth: "100px",
+  maxHeight: "130px",
+  width: "auto",
+  height: "auto",
 });
 
 export const ProductCardPercentDiscount = styled("span", {
