@@ -27,6 +27,10 @@ export const ProductCardImageContiner = styled("div", {
   borderRadius: "16px",
   padding: "16px",
   position: "relative",
+
+  "@mobile": {
+    height: "200px",
+  },
 });
 
 export const ProductCardImage = styled(Image, {
@@ -34,6 +38,11 @@ export const ProductCardImage = styled(Image, {
   maxHeight: "130px",
   width: "auto",
   height: "auto",
+
+  "@mobile": {
+    maxWidth: "120px",
+    maxHeight: "150px",
+  },
 });
 
 export const ProductCardPercentDiscount = styled("span", {

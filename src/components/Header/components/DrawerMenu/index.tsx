@@ -10,9 +10,16 @@ import { useContext } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
+import { useRouter } from "next/router";
 
 export function DrawerMenu() {
+  const router = useRouter();
   const { isDrawerMenuOpen, toogleDrawerMenu } = useContext(SettingsContext);
+
+  function handleToogleDrawerMenu(route: string) {
+    toogleDrawerMenu();
+    router.push(route);
+  }
 
   return (
     <Drawer
@@ -31,8 +38,8 @@ export function DrawerMenu() {
             <span>Entre</span> ou <span>Cadastre-se</span>
           </ButtonLoginRegister>
           <DrawerMenuList>
-            <li>Inicio</li>
-            <li>Loja</li>
+            <li onClick={() => handleToogleDrawerMenu("/")}>Inicio</li>
+            <li onClick={() => handleToogleDrawerMenu("/products")}>Produtos</li>
             <li>Ofertas Especiais</li>
             <li>Sobre</li>
             <li>FAQS</li>
