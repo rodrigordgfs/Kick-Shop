@@ -33,7 +33,7 @@ export const DrawerBody = styled("div", {
 });
 
 export const ButtonLoginRegister = styled("button", {
-  border: "none",
+  border: 0,
   background: "$zinc-200",
   padding: "16px",
   borderRadius: "8px",

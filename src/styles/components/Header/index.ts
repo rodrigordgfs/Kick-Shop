@@ -116,7 +116,7 @@ export const SearchForm = styled("form", {
     color: "$zinc-900",
     borderTopLeftRadius: "20px",
     borderBottomLeftRadius: "20px",
-    border: "none",
+    border: 0,
     outline: "none",
     height: "50px",
     padding: "0 24px",
@@ -128,7 +128,7 @@ export const SearchForm = styled("form", {
   "input[type='submit']": {
     background: "$zinc-900",
     color: "$white",
-    border: "none",
+    border: 0,
     borderTopRightRadius: "20px",
     borderBottomRightRadius: "20px",
     padding: "0 20px",

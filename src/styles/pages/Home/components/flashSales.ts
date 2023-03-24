@@ -48,7 +48,7 @@ export const FlashSalesHeaderActions = styled("div", {
     flexDirection: "row",
     alignItems: "center",
     background: "$primary",
-    border: "none",
+    border: 0,
     color: "$white",
     padding: "8px 16px",
     borderRadius: "10px",

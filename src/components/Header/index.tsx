@@ -26,6 +26,7 @@ import { IoMdCart } from "react-icons/io";
 import { MenuMobile } from "./components/MenuMobile";
 import { Categories } from "./components/Categories";
 import { useRouter } from "next/router";
+import { LoginRegister } from "../LoginRegister";
 
 export function Header() {
   const router = useRouter();
@@ -43,9 +44,11 @@ export function Header() {
               <HeaderBadgeActionsDivider />
               <li>Acompanhe seu pedido</li>
               <HeaderBadgeActionsDivider />
-              <li>
-                Entre <span>ou</span> Cadastre-se
-              </li>
+              <LoginRegister>
+                <li>
+                  Entre <span>ou</span> Cadastre-se
+                </li>
+              </LoginRegister>
             </ul>
           </HeaderBadgeActions>
         </HeaderBadge>

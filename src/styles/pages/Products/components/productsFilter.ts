@@ -61,7 +61,7 @@ export const PriceFilter = styled("div", {
 
 export const ResetFiltersButton = styled("button", {
   background: "$primary",
-  border: "none",
+  border: 0,
   borderRadius: "10px",
   color: "$white",
   cursor: "pointer",

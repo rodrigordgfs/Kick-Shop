@@ -25,7 +25,7 @@ export const TabsProductsHeader = styled(Tabs.List, {
 
 export const TabsProductsHeaderItem = styled(Tabs.Trigger, {
   background: "transparent",
-  border: "none",
+  border: 0,
   padding: "16px",
   cursor: "pointer",
   fontSize: "16px",
@@ -66,7 +66,7 @@ export const ViewAllProductsButtonContainer = styled("div", {
   button: {
     background: "$zinc-900",
     color: "$white",
-    border: "none",
+    border: 0,
     padding: "16px 32px",
     borderRadius: "20px",
     fontSize: "16px",

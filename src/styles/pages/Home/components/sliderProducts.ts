@@ -65,7 +65,7 @@ export const SliderItemButtomContainer = styled("div", {
   button: {
     backgroundColor: "$primary",
     color: "$white",
-    border: "none",
+    border: 0,
     padding: "14px 32px",
     borderRadius: "20px",
     textTransform: "uppercase",

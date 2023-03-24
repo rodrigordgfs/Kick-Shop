@@ -11,6 +11,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { useRouter } from "next/router";
+import { LoginRegister } from "@/components/LoginRegister";
 
 export function DrawerMenu() {
   const router = useRouter();
@@ -34,12 +35,16 @@ export function DrawerMenu() {
           <AiOutlineClose size={18} onClick={toogleDrawerMenu} />
         </DrawerHeader>
         <DrawerBody>
-          <ButtonLoginRegister>
-            <span>Entre</span> ou <span>Cadastre-se</span>
-          </ButtonLoginRegister>
+          <LoginRegister>
+            <ButtonLoginRegister onClick={() => toogleDrawerMenu()}>
+              <span>Entre</span> ou <span>Cadastre-se</span>
+            </ButtonLoginRegister>
+          </LoginRegister>
           <DrawerMenuList>
             <li onClick={() => handleToogleDrawerMenu("/")}>Inicio</li>
-            <li onClick={() => handleToogleDrawerMenu("/products")}>Produtos</li>
+            <li onClick={() => handleToogleDrawerMenu("/products")}>
+              Produtos
+            </li>
             <li>Ofertas Especiais</li>
             <li>Sobre</li>
             <li>FAQS</li>
