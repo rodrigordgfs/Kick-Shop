@@ -23,6 +23,8 @@ export const {
       "zinc-700": "#374151",
       "zinc-800": "#1f2937",
       "zinc-900": "#18181b",
+
+      "yellow-500": "#eab308",
     },
 
     fontSizes: {},

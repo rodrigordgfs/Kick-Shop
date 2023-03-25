@@ -10,16 +10,23 @@ import {
 } from "@/styles/components/product";
 import { formatCurrencyBRL } from "@/utils/currencyFormat";
 import StarRatings from "react-star-ratings";
+import { useRouter } from "next/router";
 
 interface ProductCardProps {
   product: IProduct;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const router = useRouter();
+
   const discount = 100 - Math.floor((product.price * 100) / product.oldPrice);
 
+  function handleOpenProduct() {
+    router.push(`/products/${product.id}`);
+  }
+
   return (
-    <ProductCardContainer>
+    <ProductCardContainer onClick={handleOpenProduct}>
       <ProductCardImageContiner>
         {discount > 0 && (
           <ProductCardPercentDiscount>
