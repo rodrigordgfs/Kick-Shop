@@ -1,129 +1,5 @@
 import { styled } from "@/styles";
-import Image from "next/image";
 import { AiFillStar } from "react-icons/ai";
-
-export const ProductsIDContainer = styled("div", {
-  margin: "0 auto",
-  maxWidth: 1170,
-  width: "100%",
-  display: "flex",
-  flexDirection: "row",
-  padding: "32px 16px",
-  gap: "32px",
-});
-
-export const ProductsInfoWrapper = styled("div", {
-  width: "100%",
-  display: "flex",
-  flexDirection: "row",
-  gap: "32px",
-
-  "@tablet": {
-    flexDirection: "column",
-  },
-});
-
-export const ProductsImagesContainer = styled("div", {
-  flex: 1,
-  display: "flex",
-  flexDirection: "row",
-  gap: "16px",
-
-  "@tablet": {
-    flexDirection: "column-reverse",
-  },
-});
-
-export const ProductImagePreviewContainer = styled("div", {
-  maxWidth: "100px",
-  width: "100%",
-  display: "flex",
-  gap: "16px",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-
-  "@tablet": {
-    maxWidth: "100%",
-    flexDirection: "row",
-  },
-});
-
-export const ProductCardImagePreviewContainer = styled("div", {
-  variants: {
-    active: {
-      true: {
-        border: "2px solid $primary",
-      },
-    },
-  },
-  width: "100%",
-  height: "100px",
-  borderRadius: "8px",
-  cursor: "pointer",
-  border: "1px solid $zinc-300",
-  transition: "all 0.2s ease-in-out",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-
-  "&:hover": {
-    background: "$zinc-100",
-  },
-
-  "@tablet": {
-    height: "75px",
-  },
-});
-
-export const ProductCardImagePreview = styled(Image, {
-  maxWidth: "75px",
-  maxHeight: "75px",
-  width: "auto",
-  height: "auto",
-
-  "@tablet": {
-    maxWidth: "50px",
-    maxHeight: "50px",
-  },
-});
-
-export const ProductImageContainer = styled("div", {
-  flex: 1,
-  width: "100%",
-  height: "450px",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  border: "1px solid $zinc-300",
-  borderRadius: "16px",
-  position: "relative",
-  background: "$zinc-100",
-});
-
-export const ProductCardPercentDiscount = styled("span", {
-  position: "absolute",
-  top: "16px",
-  right: "16px",
-  background: "$primary",
-  color: "$white",
-  padding: "4px 8px",
-  borderRadius: "8px",
-  fontSize: "16px",
-});
-
-export const ProductCardImage = styled(Image, {
-  maxWidth: "300px",
-  maxHeight: "400px",
-  width: "auto",
-  height: "auto",
-
-  "@tablet": {
-    maxWidth: "200px",
-    maxHeight: "300px",
-    padding: "16px 0",
-  },
-});
 
 export const ProductsInfoContainer = styled("div", {
   flex: 1,
@@ -167,6 +43,7 @@ export const ProductsRating = styled("div", {
   gap: "8px",
   alignItems: "center",
   color: "$zinc-700",
+  fontSize: "14px",
 
   "span:nth-child(3)": {
     fontSize: "20px",
@@ -194,14 +71,6 @@ export const ProductsDescriptionContainer = styled("div", {
     "-webkit-line-clamp": 3,
     "-webkit-box-orient": "vertical",
   },
-});
-
-export const ProductActionsContainer = styled("div", {
-  display: "flex",
-  flexDirection: "row",
-  gap: "16px",
-  paddingBottom: "16px",
-  borderBottom: "1px solid $zinc-300",
 });
 
 export const ProductActionsCounter = styled("div", {
@@ -233,6 +102,14 @@ export const ProductActionsCounter = styled("div", {
       padding: "0 8px",
     },
   },
+});
+
+export const ProductActionsContainer = styled("div", {
+  display: "flex",
+  flexDirection: "row",
+  gap: "16px",
+  paddingBottom: "16px",
+  borderBottom: "1px solid $zinc-300",
 });
 
 export const ProductAddToCard = styled("button", {
@@ -306,7 +183,7 @@ export const ProductWishListSocialNetworkContainer = styled("div", {
 export const ProductsSocialNetwork = styled("div", {
   display: "flex",
   flexDirection: "row",
-  gap: "16px",
+  gap: "8px",
   alignItems: "center",
 
   div: {
