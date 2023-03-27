@@ -40,6 +40,7 @@ export default function Products({ product }: ProductProps) {
             }
           />
           <ProductsInfo
+            id={product.id}
             title={product.title}
             price={product.price}
             oldPrice={product.oldPrice}

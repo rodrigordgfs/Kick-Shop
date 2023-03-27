@@ -131,6 +131,11 @@ export const ProductAddToCard = styled("button", {
   "&:hover": {
     backgroundColor: "$zinc-900",
   },
+
+  "&:disabled": {
+    backgroundColor: "$zinc-300",
+    cursor: "not-allowed",
+  },
 });
 
 export const ProductBuyNow = styled("button", {

@@ -8,6 +8,9 @@ import { DrawerMenu } from "@/components/Header/components/DrawerMenu";
 import { ProductsContextProvider } from "@/contexts/Products";
 import { Footer } from "@/components/Footer";
 import { DrawerFilterProduct } from "@/components/Products/ProductsList/components/DrawerFilterProduct";
+import { CartContextProvider } from "@/contexts/Cart";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 globalStyles();
 
@@ -15,15 +18,18 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <SettingsContextProvider>
       <ProductsContextProvider>
-        <CategoriesContextProvider>
-          <Container>
-            <DrawerMenu />
-            <DrawerFilterProduct />
-            <Header />
-            <Component {...pageProps} />
-            <Footer />
-          </Container>
-        </CategoriesContextProvider>
+        <CartContextProvider>
+          <CategoriesContextProvider>
+            <Container>
+              <DrawerMenu />
+              <DrawerFilterProduct />
+              <Header />
+              <Component {...pageProps} />
+              <Footer />
+              <ToastContainer />
+            </Container>
+          </CategoriesContextProvider>
+        </CartContextProvider>
       </ProductsContextProvider>
     </SettingsContextProvider>
   );

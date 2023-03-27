@@ -1,3 +1,4 @@
+import { CartContext } from "@/contexts/Cart";
 import {
   ProductActionsContainer,
   ProductActionsCounter,
@@ -13,10 +14,12 @@ import {
   ProductsSocialNetwork,
 } from "@/styles/pages/Products/ID/components/productsInfo";
 import { formatCurrencyBRL } from "@/utils/currencyFormat";
+import { useContext, useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BsFacebook, BsInstagram, BsTwitter, BsYoutube } from "react-icons/bs";
 
 interface IProductsInfoProps {
+  id: number;
   title: string;
   price: number;
   oldPrice: number;
@@ -28,12 +31,41 @@ interface IProductsInfoProps {
 }
 
 export function ProductsInfo({
+  id,
   title,
   price,
   oldPrice,
   rating,
   description,
 }: IProductsInfoProps) {
+  const [quantity, setQuantity] = useState(0);
+
+  const { handleUpdateCart } = useContext(CartContext);
+
+  const disableAddToCart = quantity === 0;
+
+  function handleChangeQuantity(action: "add" | "remove") {
+    if (action === "add") {
+      if (quantity >= 0) {
+        setQuantity((quantity) => quantity + 1);
+      }
+    } else {
+      if (quantity > 0) {
+        setQuantity((quantity) => quantity - 1);
+      }
+    }
+  }
+
+  function handleAddToCart() {
+    handleUpdateCart(id, quantity);
+    setQuantity(0);
+  }
+
+  function handleBuyNow() {
+    handleUpdateCart(id, 1);
+    // Redirect to checkout
+  }
+
   return (
     <ProductsInfoContainer>
       <h1>{title}</h1>
@@ -54,18 +86,20 @@ export function ProductsInfo({
       </ProductsDescriptionContainer>
       <ProductActionsContainer>
         <ProductActionsCounter>
-          <div>
+          <div onClick={() => handleChangeQuantity("remove")}>
             <AiOutlineMinus size={18} />
           </div>
           <div>
-            <span>0</span>
+            <span>{quantity}</span>
           </div>
-          <div>
+          <div onClick={() => handleChangeQuantity("add")}>
             <AiOutlinePlus size={18} />
           </div>
         </ProductActionsCounter>
-        <ProductAddToCard>Add to cart</ProductAddToCard>
-        <ProductBuyNow>Buy now</ProductBuyNow>
+        <ProductAddToCard onClick={handleAddToCart} disabled={disableAddToCart}>
+          Add to cart
+        </ProductAddToCard>
+        <ProductBuyNow onClick={handleBuyNow}>Buy now</ProductBuyNow>
       </ProductActionsContainer>
       <ProductWishListSocialNetworkContainer>
         <div>

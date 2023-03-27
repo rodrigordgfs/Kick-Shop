@@ -27,9 +27,12 @@ import { MenuMobile } from "./components/MenuMobile";
 import { Categories } from "./components/Categories";
 import { useRouter } from "next/router";
 import { LoginRegister } from "../LoginRegister";
+import { useContext } from "react";
+import { CartContext } from "@/contexts/Cart";
 
 export function Header() {
   const router = useRouter();
+  const { cartQuantity } = useContext(CartContext);
 
   return (
     <HeaderContainer>
@@ -71,7 +74,7 @@ export function Header() {
             </MenuActionsIcon>
             <MenuActionsIcon>
               <IoMdCart size={24} />
-              <span>4</span>
+              {cartQuantity > 0 && <span>{cartQuantity}</span>}
             </MenuActionsIcon>
           </MenuActionsContainer>
           <HeaderMainMobileContainer>
