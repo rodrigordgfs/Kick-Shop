@@ -101,6 +101,14 @@ export const ProductDetailsNewReviewForm = styled("form", {
       color: "$zinc-900",
       backgroundColor: "$white",
     },
+
+    "@tablet": {
+      flexDirection: "column",
+
+      "input[type='text'], input[type='email']": {
+        flex: "none",
+      },
+    },
   },
 
   textarea: {
