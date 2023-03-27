@@ -1,3 +1,5 @@
+import { CartList } from "@/components/Cart/CarList";
+import { OrderSummary } from "@/components/Cart/OrderSummary";
 import { PageBanner } from "@/components/PageBanner";
 import { CategoriesContext } from "@/contexts/Categories";
 import { ICategorie } from "@/interfaces/ICategories";
@@ -33,7 +35,8 @@ export default function Cart({ categories }: CartProps) {
         </div>
       </PageBanner>
       <CartContainer>
-        <h1>Cart</h1>
+        <CartList />
+        <OrderSummary />
       </CartContainer>
     </>
   );
