@@ -14,6 +14,7 @@ import {
   ProductsSocialNetwork,
 } from "@/styles/pages/Products/ID/components/productsInfo";
 import { formatCurrencyBRL } from "@/utils/currencyFormat";
+import { useRouter } from "next/router";
 import { useContext, useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BsFacebook, BsInstagram, BsTwitter, BsYoutube } from "react-icons/bs";
@@ -42,6 +43,8 @@ export function ProductsInfo({
 
   const { handleUpdateCart } = useContext(CartContext);
 
+  const router = useRouter();
+
   const disableAddToCart = quantity === 0;
 
   function handleChangeQuantity(action: "add" | "remove") {
@@ -63,7 +66,7 @@ export function ProductsInfo({
 
   function handleBuyNow() {
     handleUpdateCart(id, 1);
-    // Redirect to checkout
+    router.push("/cart");
   }
 
   return (

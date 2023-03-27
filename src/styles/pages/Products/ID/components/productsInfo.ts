@@ -203,5 +203,10 @@ export const ProductsSocialNetwork = styled("div", {
     cursor: "pointer",
     backgroundColor: "$zinc-200",
     color: "$zinc-900",
+    transition: "all 0.3s ease-in-out",
+
+    "&:hover": {
+      color: "$primary",
+    },
   },
 });

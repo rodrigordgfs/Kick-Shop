@@ -3,7 +3,6 @@ import { ProductsFilter } from "@/components/Products/ProductsFilter";
 import { ProductsList } from "@/components/Products/ProductsList";
 import { ICategorie } from "@/interfaces/ICategories";
 import {
-  PageBanner,
   ProductsContainer,
   ProductsProductsFilterContainer,
 } from "@/styles/pages/Products";
@@ -14,6 +13,7 @@ import { CategoriesContext } from "@/contexts/Categories";
 import { IProduct } from "@/interfaces/IProduct";
 import { PRODUCT_IMAGES } from "@/utils/productImages";
 import { ProductsContext } from "@/contexts/Products";
+import { PageBanner } from "@/components/PageBanner";
 
 interface ProductsProps {
   categories: ICategorie[];
