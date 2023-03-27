@@ -1,10 +1,8 @@
 import {
   ProductCardImage,
-  ProductCardPercentDiscount,
-} from "@/styles/components/product";
-import {
   ProductCardImagePreview,
   ProductCardImagePreviewContainer,
+  ProductCardPercentDiscount,
   ProductImageContainer,
   ProductImagePreviewContainer,
   ProductsImagesContainer,
@@ -79,7 +77,7 @@ export function ProductsImage({ image, discount }: IProductImageProps) {
       <ProductImageContainer>
         {discount > 0 && (
           <ProductCardPercentDiscount>
-            {String(discount).padStart(2, "0")}%
+            {`${String(discount).padStart(2, "0")}%`}
           </ProductCardPercentDiscount>
         )}
         <ProductCardImage src={activeImage?.image as string} alt="" />

@@ -44,6 +44,7 @@ export const ProductCardImagePreviewContainer = styled("div", {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  padding: "8px",
 
   "&:hover": {
     background: "$zinc-100",
@@ -77,9 +78,14 @@ export const ProductImageContainer = styled("div", {
   borderRadius: "16px",
   position: "relative",
   background: "$zinc-100",
+  padding: "16px",
 
   "@tablet": {
     flex: "none",
+  },
+
+  "@mobile": {
+    height: "300px",
   },
 });
 
@@ -101,6 +107,11 @@ export const ProductCardImage = styled(Image, {
   height: "auto",
 
   "@tablet": {
+    maxWidth: "300px",
+    maxHeight: "400px",
+  },
+
+  "@mobile": {
     maxWidth: "200px",
     maxHeight: "300px",
   },
