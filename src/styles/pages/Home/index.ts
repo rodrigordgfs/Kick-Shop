@@ -10,6 +10,7 @@ export const Container = styled("div", {
 });
 
 export const HomeContainer = styled("main", {
+  flex: 1,
   display: "flex",
   flexDirection: "column",
   maxWidth: "100vw",

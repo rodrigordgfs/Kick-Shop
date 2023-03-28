@@ -2,6 +2,7 @@ import { styled } from "@/styles";
 import * as Tabs from "@radix-ui/react-tabs";
 
 export const ProductsIDContainer = styled("div", {
+  flex: 1,
   margin: "0 auto",
   maxWidth: 1170,
   width: "100%",

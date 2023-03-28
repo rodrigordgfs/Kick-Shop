@@ -1,6 +1,7 @@
 import { styled } from "@/styles";
 
 export const ProductsContainer = styled("div", {
+  flex: 1,
   margin: "0 auto",
   maxWidth: 1170,
   width: "100%",
