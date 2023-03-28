@@ -72,7 +72,7 @@ export function Header() {
             <MenuActionsIcon>
               <AiOutlineHeart size={24} />
             </MenuActionsIcon>
-            <MenuActionsIcon>
+            <MenuActionsIcon onClick={() => router.push("/cart")}>
               <IoMdCart size={24} />
               {cartQuantity > 0 && <span>{cartQuantity}</span>}
             </MenuActionsIcon>

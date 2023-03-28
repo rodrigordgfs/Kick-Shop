@@ -232,6 +232,19 @@ export const MenuTablet = styled("div", {
   display: "flex",
   flexDirection: "row",
   gap: "8px",
+  marginRight: "4px",
+
+  "@tablet": {
+    "div:nth-child(3)": {
+      display: "none",
+    },
+  },
+
+  "@mobile": {
+    "div:nth-child(3)": {
+      display: "flex",
+    },
+  },
 });
 
 export const ContactUs = styled("div", {

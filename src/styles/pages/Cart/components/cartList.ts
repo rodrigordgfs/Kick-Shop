@@ -8,25 +8,6 @@ export const CartListContainer = styled("div", {
   gap: "16px",
 });
 
-export const CartListHeader = styled("ul", {
-  display: "flex",
-  flexDirection: "row",
-  gap: "16px",
-  listStyle: "none",
-  background: "$zinc-100",
-  padding: "16px 16px 16px 64px",
-  borderRadius: "10px",
-
-  "li:first-child": {
-    flex: 1,
-  },
-
-  li: {
-    flex: "0 0 120px",
-    textTransform: "uppercase",
-  },
-});
-
 export const CartListContent = styled("ul", {
   display: "flex",
   flexDirection: "column",
@@ -41,7 +22,7 @@ export const CartListItem = styled("li", {
   border: "1px solid $zinc-200",
   borderRadius: "10px",
   alignItems: "center",
-  padding: "16px 0",
+  padding: "16px 16px 16px 0",
 });
 
 export const CartListItemRemoveContainer = styled("div", {
@@ -67,9 +48,22 @@ export const CartListItemInfoContainer = styled("div", {
   gap: "16px",
   alignItems: "center",
   flex: 1,
+});
+
+export const CartListItemInfo = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  gap: "8px",
+  flex: 1,
 
   p: {
     fontWeight: "500",
+  },
+
+  "@mobile": {
+    p: {
+      fontSize: "14px",
+    },
   },
 });
 
@@ -81,6 +75,11 @@ export const CartListItemInfoImageContainer = styled("div", {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+
+  "@mobile": {
+    width: "60px",
+    height: "60px",
+  },
 });
 
 export const CartListItemInfoImage = styled(Image, {
@@ -88,16 +87,23 @@ export const CartListItemInfoImage = styled(Image, {
   maxHeight: "60px",
   width: "auto",
   height: "auto",
+
+  "@mobile": {
+    maxWidth: "40px",
+    maxHeight: "40px",
+  },
 });
 
-export const CartListItemPrice = styled("p", {
-  flex: "0 0 127px",
+export const CartListItemPrice = styled("div", {
   color: "$zinc-600",
+
+  "@mobile": {
+    fontSize: "14px",
+  },
 });
 export const CartListItemQuantity = styled("div", {
-  flex: "0 0 127px",
   display: "flex",
-  flexDirection: "row",
+  flexDirection: "column",
   gap: "8px",
   alignItems: "center",
   border: "1px solid $zinc-300",
@@ -106,8 +112,6 @@ export const CartListItemQuantity = styled("div", {
   padding: "8px 12px",
 
   "div:first-child, div:last-child": {
-    // height: "40px",
-    // width: "40px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -128,8 +132,12 @@ export const CartListItemQuantity = styled("div", {
   },
 });
 
-export const CartListItemSubtotal = styled("p", {
-  flex: "0 0 127px",
+export const CartListItemSubtotal = styled("div", {
+  color: "$zinc-600",
+
+  "@mobile": {
+    fontSize: "14px",
+  },
 });
 
 export const CartListFooter = styled("div", {

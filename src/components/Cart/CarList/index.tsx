@@ -5,8 +5,8 @@ import {
   CartListContainer,
   CartListContent,
   CartListFooter,
-  CartListHeader,
   CartListItem,
+  CartListItemInfo,
   CartListItemInfoContainer,
   CartListItemInfoImage,
   CartListItemInfoImageContainer,
@@ -51,16 +51,11 @@ export function CartList() {
 
   async function handleApplyCoupon({ code }: CouponFormType) {
     handleValidateCoupon(code);
+    reset();
   }
 
   return (
     <CartListContainer>
-      <CartListHeader>
-        <li>Product</li>
-        <li>Price</li>
-        <li>Quantity</li>
-        <li>Subtotal</li>
-      </CartListHeader>
       <CartListContent>
         {cart.map((product) => {
           const productData = products.find((item) => item.id === product.id);
@@ -80,31 +75,39 @@ export function CartList() {
                     height={60}
                   />
                 </CartListItemInfoImageContainer>
-                <p>{productData?.title}</p>
+                <CartListItemInfo>
+                  <p>{productData?.title}</p>
+                  <CartListItemPrice>
+                    <span>
+                      Price:{" "}
+                      {formatCurrencyBRL.format(productData?.price as number)}
+                    </span>
+                  </CartListItemPrice>
+                  <CartListItemSubtotal>
+                    <span>
+                      Subtotal:{" "}
+                      {formatCurrencyBRL.format(
+                        product.quantity * (productData?.price as number)
+                      )}
+                    </span>
+                  </CartListItemSubtotal>
+                </CartListItemInfo>
               </CartListItemInfoContainer>
-              <CartListItemPrice>
-                {formatCurrencyBRL.format(productData?.price as number)}
-              </CartListItemPrice>
               <CartListItemQuantity>
-                <div
-                  onClick={() => handleUpdateQuantityCart(product.id, "remove")}
-                >
-                  <AiOutlineMinus size={18} />
-                </div>
-                <div>
-                  <span>{product.quantity}</span>
-                </div>
                 <div
                   onClick={() => handleUpdateQuantityCart(product.id, "add")}
                 >
                   <AiOutlinePlus size={18} />
                 </div>
+                <div>
+                  <span>{product.quantity}</span>
+                </div>
+                <div
+                  onClick={() => handleUpdateQuantityCart(product.id, "remove")}
+                >
+                  <AiOutlineMinus size={18} />
+                </div>
               </CartListItemQuantity>
-              <CartListItemSubtotal>
-                {formatCurrencyBRL.format(
-                  product.quantity * (productData?.price as number)
-                )}
-              </CartListItemSubtotal>
             </CartListItem>
           );
         })}

@@ -9,6 +9,10 @@ export const OrderSummaryContainer = styled("div", {
   background: "$zinc-100",
   padding: "16px",
   borderRadius: "10px",
+
+  "@tablet": {
+    maxWidth: "100%",
+  },
 });
 
 export const OrderSummaryItem = styled("div", {
@@ -18,6 +22,7 @@ export const OrderSummaryItem = styled("div", {
   background: "$white",
   padding: "16px 8px",
   borderRadius: "8px",
+  gap: "8px",
 
   div: {
     flex: "0 0 50%",

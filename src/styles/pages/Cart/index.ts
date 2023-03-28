@@ -7,6 +7,10 @@ export const CartContainer = styled("div", {
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",
-  padding: "32px 0",
+  padding: "32px 16px",
   gap: "32px",
+
+  "@tablet": {
+    flexDirection: "column",
+  },
 });
