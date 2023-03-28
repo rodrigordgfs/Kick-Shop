@@ -18,12 +18,13 @@ export function ProductsFilter() {
     <ProductsFilterContainer>
       <Expandable title="Categories">
         <CategoriesFilter>
-          {categories.map((category) => (
-            <li key={category.id}>
-              {category.name}
-              <AiOutlineRight size={18} />
-            </li>
-          ))}
+          {categories &&
+            categories.map((category) => (
+              <li key={category.id}>
+                {category.name}
+                <AiOutlineRight size={18} />
+              </li>
+            ))}
         </CategoriesFilter>
       </Expandable>
       <Expandable title="Rating">

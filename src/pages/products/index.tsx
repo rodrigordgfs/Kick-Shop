@@ -7,7 +7,7 @@ import {
   ProductsProductsFilterContainer,
 } from "@/styles/pages/Products";
 import { GetStaticProps } from "next";
-import { v4 as uuidv4 } from "uuid";
+import { randomUUID } from "crypto";
 import Head from "next/head";
 import { CategoriesContext } from "@/contexts/Categories";
 import { IProduct } from "@/interfaces/IProduct";
@@ -61,7 +61,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const categories = categorieData.map((category: string) => {
     return {
-      id: uuidv4(),
+      id: randomUUID(),
       name: category,
     };
   }) as ICategorie[];

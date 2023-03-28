@@ -28,9 +28,12 @@ export function FlashSales() {
         </FlashSalesHeaderActions>
       </FlashSalesHeader>
       <FlashSalesBody>
-        {productsList.map((product) => {
-          return product && <ProductCard product={product} key={product.id} />;
-        })}
+        {productsList &&
+          productsList.map((product) => {
+            return (
+              product && <ProductCard product={product} key={product.id} />
+            );
+          })}
       </FlashSalesBody>
     </FlashSalesContainer>
   );

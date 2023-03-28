@@ -6,10 +6,13 @@ import {
   ProceedCheckoutButton,
 } from "@/styles/pages/Cart/components/orderSummary";
 import { formatCurrencyBRL } from "@/utils/currencyFormat";
+import { useRouter } from "next/router";
 import { useContext } from "react";
 
 export function OrderSummary() {
   const { subtotal, coupon, total } = useContext(CartContext);
+
+  const router = useRouter();
 
   return (
     <OrderSummaryContainer>
@@ -38,7 +41,9 @@ export function OrderSummary() {
           <strong>{formatCurrencyBRL.format(total)}</strong>
         </div>
       </OrderSummaryItem>
-      <ProceedCheckoutButton>Proceed to checkout</ProceedCheckoutButton>
+      <ProceedCheckoutButton onClick={() => router.push("/checkout")}>
+        Proceed to checkout
+      </ProceedCheckoutButton>
     </OrderSummaryContainer>
   );
 }

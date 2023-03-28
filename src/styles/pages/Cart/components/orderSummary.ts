@@ -46,6 +46,7 @@ export const ProceedCheckoutButton = styled("button", {
   transition: "all 0.2s ease-in-out",
   border: "none",
   fontWeight: "500",
+  fontSize: "16px",
 
   "&:hover": {
     background: "$zinc-900",

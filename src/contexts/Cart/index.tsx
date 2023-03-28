@@ -69,12 +69,15 @@ export function CartContextProvider({ children }: ICartContextProps) {
     if (productCart) {
       productCart.quantity = productCart.quantity + quantity;
       setCart((cart) => {
-        return cart.map((product) => {
-          if (product.id === productCart.id) {
-            return productCart;
-          }
-          return product;
-        });
+        return (
+          cart &&
+          cart.map((product) => {
+            if (product.id === productCart.id) {
+              return productCart;
+            }
+            return product;
+          })
+        );
       });
     } else {
       setCart((cart) => {
@@ -104,12 +107,15 @@ export function CartContextProvider({ children }: ICartContextProps) {
         }
       }
       setCart((cart) => {
-        return cart.map((product) => {
-          if (product.id === productCart.id) {
-            return productCart;
-          }
-          return product;
-        });
+        return (
+          cart &&
+          cart.map((product) => {
+            if (product.id === productCart.id) {
+              return productCart;
+            }
+            return product;
+          })
+        );
       });
     }
   }

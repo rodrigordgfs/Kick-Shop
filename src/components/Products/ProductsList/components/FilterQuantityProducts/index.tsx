@@ -27,11 +27,12 @@ export function FilterQuantityProducts() {
         <Select.Content>
           <Select.ScrollUpButton />
           <FilterQuantityProductsContent>
-            {quantityOptions.map((option) => (
-              <Select.Item key={option.value} value={option.value}>
-                <Select.ItemText>{option.label}</Select.ItemText>
-              </Select.Item>
-            ))}
+            {quantityOptions &&
+              quantityOptions.map((option) => (
+                <Select.Item key={option.value} value={option.value}>
+                  <Select.ItemText>{option.label}</Select.ItemText>
+                </Select.Item>
+              ))}
           </FilterQuantityProductsContent>
           <Select.ScrollDownButton />
           <Select.Arrow />

@@ -57,27 +57,28 @@ export function SliderProducts() {
 
   return (
     <SliderContainer {...sliderSettings}>
-      {items.map((item) => (
-        <SliderItemContainer key={item.id}>
-          <SliderItem>
-            <SliderItemInfo>
-              <h2>{item.title}</h2>
+      {items &&
+        items.map((item) => (
+          <SliderItemContainer key={item.id}>
+            <SliderItem>
+              <SliderItemInfo>
+                <h2>{item.title}</h2>
 
-              <div>
-                <p>From</p>
-                <h2>{formatCurrencyBRL.format(item.price)}</h2>
-              </div>
+                <div>
+                  <p>From</p>
+                  <h2>{formatCurrencyBRL.format(item.price)}</h2>
+                </div>
 
-              <SliderItemButtomContainer>
-                <button>Shop Now</button>
-              </SliderItemButtomContainer>
-            </SliderItemInfo>
-            <SliderItemImageContainer>
-              <Image src={item.image} alt="" width={189} height={250} />
-            </SliderItemImageContainer>
-          </SliderItem>
-        </SliderItemContainer>
-      ))}
+                <SliderItemButtomContainer>
+                  <button>Shop Now</button>
+                </SliderItemButtomContainer>
+              </SliderItemInfo>
+              <SliderItemImageContainer>
+                <Image src={item.image} alt="" width={189} height={250} />
+              </SliderItemImageContainer>
+            </SliderItem>
+          </SliderItemContainer>
+        ))}
     </SliderContainer>
   );
 }

@@ -2,7 +2,7 @@ import { SliderProducts } from "@/components/Home/SliderProducts";
 import { ICategorie } from "@/interfaces/ICategories";
 import { HomeContainer } from "@/styles/pages/Home";
 import { GetStaticProps } from "next";
-import { v4 as uuidv4 } from "uuid";
+import { randomUUID } from "crypto";
 import Head from "next/head";
 import { useContext, useEffect } from "react";
 import { CategoriesContext } from "@/contexts/Categories";
@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const categories = categorieData.map((category: string) => {
     return {
-      id: uuidv4(),
+      id: randomUUID(),
       name: category,
     };
   }) as ICategorie[];

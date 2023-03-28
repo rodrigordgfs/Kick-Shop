@@ -24,12 +24,13 @@ export function Categories() {
       <Popover.Portal>
         <Popover.Content>
           <CategoriesList>
-            {categories.map((category) => (
-              <li key={category.id}>
-                <p>{category.name}</p>
-                <AiOutlineRight size={18} />
-              </li>
-            ))}
+            {categories &&
+              categories.map((category) => (
+                <li key={category.id}>
+                  <p>{category.name}</p>
+                  <AiOutlineRight size={18} />
+                </li>
+              ))}
           </CategoriesList>
         </Popover.Content>
       </Popover.Portal>

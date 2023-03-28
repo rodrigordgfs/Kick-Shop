@@ -91,27 +91,28 @@ export function ProductDetailsReview() {
   return (
     <ProductDetailsReviewContainer>
       <ProductDetailsReviewComments>
-        {comments.map((comment) => (
-          <ProductDetailsReviewItem key={comment.id}>
-            <ProductDetailsReviewItemHeader>
-              <ProductDetailsReviewItemHeaderImage>
-                <BsFillPersonFill size={24} />
-              </ProductDetailsReviewItemHeaderImage>
-              <ProductDetailsReviewItemHeaderInfo>
-                <p>{comment.name}</p>
-                <StarRatings
-                  rating={comment.rating}
-                  starRatedColor="#FF6650"
-                  starDimension="12px"
-                  starSpacing="1px"
-                />
-              </ProductDetailsReviewItemHeaderInfo>
-            </ProductDetailsReviewItemHeader>
-            <ProductDetailsReviewItemComment>
-              {comment.comment}
-            </ProductDetailsReviewItemComment>
-          </ProductDetailsReviewItem>
-        ))}
+        {comments &&
+          comments.map((comment) => (
+            <ProductDetailsReviewItem key={comment.id}>
+              <ProductDetailsReviewItemHeader>
+                <ProductDetailsReviewItemHeaderImage>
+                  <BsFillPersonFill size={24} />
+                </ProductDetailsReviewItemHeaderImage>
+                <ProductDetailsReviewItemHeaderInfo>
+                  <p>{comment.name}</p>
+                  <StarRatings
+                    rating={comment.rating}
+                    starRatedColor="#FF6650"
+                    starDimension="12px"
+                    starSpacing="1px"
+                  />
+                </ProductDetailsReviewItemHeaderInfo>
+              </ProductDetailsReviewItemHeader>
+              <ProductDetailsReviewItemComment>
+                {comment.comment}
+              </ProductDetailsReviewItemComment>
+            </ProductDetailsReviewItem>
+          ))}
       </ProductDetailsReviewComments>
       <ProductDetailsNewReviewContainer>
         <h3>Leave a review</h3>

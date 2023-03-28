@@ -64,15 +64,16 @@ export function ProductsImage({ image, discount }: IProductImageProps) {
   return (
     <ProductsImagesContainer>
       <ProductImagePreviewContainer>
-        {imagesPreview.map((data) => (
-          <ProductCardImagePreviewContainer
-            key={data.id}
-            active={data.active}
-            onClick={() => handleChangeImage(data.id)}
-          >
-            <ProductCardImagePreview src={data.image} alt="" />
-          </ProductCardImagePreviewContainer>
-        ))}
+        {imagesPreview &&
+          imagesPreview.map((data) => (
+            <ProductCardImagePreviewContainer
+              key={data.id}
+              active={data.active}
+              onClick={() => handleChangeImage(data.id)}
+            >
+              <ProductCardImagePreview src={data.image} alt="" />
+            </ProductCardImagePreviewContainer>
+          ))}
       </ProductImagePreviewContainer>
       <ProductImageContainer>
         {discount > 0 && (
