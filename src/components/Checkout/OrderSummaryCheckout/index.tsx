@@ -36,8 +36,10 @@ export function OrderSummaryCheckout() {
               <OrderSummaryCheckoutProductsItem key={cartItem.id}>
                 <OrderSummaryCheckoutProductsItemImageContainer>
                   <OrderSummaryCheckoutProductsItemImage
-                    src={product?.image as string}
+                    src={product?.images[0].url as string}
                     alt=""
+                    width={60}
+                    height={60}
                   />
                 </OrderSummaryCheckoutProductsItemImageContainer>
                 <OrderSummaryCheckoutProductsItemInfo>

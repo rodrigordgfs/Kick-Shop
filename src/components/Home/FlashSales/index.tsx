@@ -8,13 +8,12 @@ import {
 } from "@/styles/pages/Home/components/flashSales";
 import { Countdown } from "./components/Countdown";
 import { ProductsContext } from "@/contexts/Products";
-import Image from "next/image";
 import { ProductCard } from "@/components/ProductCard";
 
 export function FlashSales() {
   const { products } = useContext(ProductsContext);
 
-  const productsList = [products[0], products[1], products[2], products[3]];
+  const productsList = products.slice(0, 4);
 
   return (
     <FlashSalesContainer>

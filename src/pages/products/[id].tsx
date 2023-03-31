@@ -8,13 +8,13 @@ import {
   ProductDetailsContent,
   ProductDetailsContentDescription,
 } from "@/styles/pages/Products/ID";
-import { PRODUCT_IMAGES } from "@/utils/productImages";
-import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import * as Tabs from "@radix-ui/react-tabs";
 import { ProductsImage } from "@/components/Products/ID/components/ProductsImage";
 import { ProductsInfo } from "@/components/Products/ID/components/ProductsInfo";
 import { ProductDetailsReview } from "@/components/Products/ID/components/ProductDetailsReview";
+import { PRODUCTS } from "@/api/products";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 interface ProductProps {
   product: IProduct;
@@ -34,7 +34,7 @@ export default function Products({ product }: ProductProps) {
       <ProductsIDContainer>
         <ProductsInfoWrapper>
           <ProductsImage
-            image={product.image}
+            images={product.images}
             discount={
               100 - Math.floor((product.price * 100) / product.oldPrice)
             }
@@ -63,7 +63,6 @@ export default function Products({ product }: ProductProps) {
                 {product.description}
               </ProductDetailsContentDescription>
             </ProductDetailsContent>
-            <ProductDetailsContent value="aditional_information"></ProductDetailsContent>
             <ProductDetailsContent value="review">
               <ProductDetailsReview />
             </ProductDetailsContent>
@@ -77,11 +76,7 @@ export default function Products({ product }: ProductProps) {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [
-      { params: { id: "1" } },
-      { params: { id: "2" } },
-      { params: { id: "3" } },
-      { params: { id: "4" } },
-      { params: { id: "5" } },
+      { params: { id: "828866e4-d0c2-4f3d-a962-0c6355e6200e" } }
     ],
     fallback: "blocking",
   };
@@ -92,19 +87,11 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({
 }) => {
   const productId = params?.id;
 
-  const productResponse = await fetch(
-    `https://fakestoreapi.com/products/${productId}`
-  );
-  const product = await productResponse.json();
+  const product = PRODUCTS.find((product) => product.id === productId) as IProduct;
 
   return {
     props: {
-      product: {
-        ...product,
-        image: PRODUCT_IMAGES.find((image) => image.id === product.id)?.image,
-        oldPrice: product.price + 10,
-      },
-    },
-    revalidate: 60 * 60 * 2,
+      product
+    }
   };
 };

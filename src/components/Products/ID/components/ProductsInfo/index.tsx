@@ -20,7 +20,7 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BsFacebook, BsInstagram, BsTwitter, BsYoutube } from "react-icons/bs";
 
 interface IProductsInfoProps {
-  id: number;
+  id: string;
   title: string;
   price: number;
   oldPrice: number;

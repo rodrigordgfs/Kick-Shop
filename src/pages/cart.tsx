@@ -10,12 +10,12 @@ import {
   CartEmptyContainer,
   CartEmptyImage,
 } from "@/styles/pages/Cart";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useContext, useEffect } from "react";
-import { randomUUID } from "crypto";
 import EmptyCart from "@/assets/emptyCart.svg";
 import { useRouter } from "next/router";
+import { CATEGORIES } from "@/api/categories";
 
 interface CartProps {
   categories: ICategorie[];
@@ -65,23 +65,12 @@ export default function Cart({ categories }: CartProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const categorieResponse = await fetch(
-    "https://fakestoreapi.com/products/categories"
-  );
-  const categorieData = await categorieResponse.json();
-
-  const categories = categorieData.map((category: string) => {
-    return {
-      id: randomUUID(),
-      name: category,
-    };
-  }) as ICategorie[];
+export const getServerSideProps: GetServerSideProps = async () => {
+  const categories = CATEGORIES;
 
   return {
     props: {
       categories,
     },
-    revalidate: 60 * 60 * 2,
   };
 };

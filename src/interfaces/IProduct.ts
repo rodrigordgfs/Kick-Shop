@@ -1,11 +1,13 @@
+import { IProductImages } from "./IProductImages";
+
 export interface IProduct {
-  id: number;
+  id: string;
   title: string;
+  description: string;
   price: number;
   oldPrice: number;
-  description: string;
   category: string;
-  image: string;
+  images: IProductImages[];
   rating: {
     rate: number;
     count: number;

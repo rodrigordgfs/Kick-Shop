@@ -1,3 +1,4 @@
+import { IProductImages } from "@/interfaces/IProductImages";
 import {
   ProductCardImage,
   ProductCardImagePreview,
@@ -10,39 +11,32 @@ import {
 import { useState } from "react";
 
 interface IProductImageProps {
-  image: string;
+  images: IProductImages[];
   discount: number;
 }
 
-export function ProductsImage({ image, discount }: IProductImageProps) {
-  const [imagesPreview, setImagesPreview] = useState([
-    {
-      id: 1,
-      image: image,
-      active: true,
-    },
-    {
-      id: 2,
-      image: image,
-      active: false,
-    },
-    {
-      id: 3,
-      image: image,
-      active: false,
-    },
-    {
-      id: 4,
-      image: image,
-      active: false,
-    },
-  ]);
+interface IImagePreview {
+  id: string;
+  image: string;
+  active: boolean;
+}
 
-  const [activeImage, setActiveImage] = useState(
-    imagesPreview.find((image) => image.active)
+export function ProductsImage({ images, discount }: IProductImageProps) {
+  const [imagesPreview, setImagesPreview] = useState(
+    images.map((image, index) => {
+      return {
+        id: image.id,
+        image: image.url as string,
+        active: index === 0 ? true : false,
+      } as IImagePreview;
+    })
   );
 
-  function handleChangeImage(id: number) {
+  const [activeImage, setActiveImage] = useState(
+    imagesPreview.find((image) => image.active === true)
+  );
+
+  function handleChangeImage(id: string) {
     setImagesPreview((state) => {
       return state.map((image) => {
         if (image.id === id) {
@@ -71,7 +65,12 @@ export function ProductsImage({ image, discount }: IProductImageProps) {
               active={data.active}
               onClick={() => handleChangeImage(data.id)}
             >
-              <ProductCardImagePreview src={data.image} alt="" />
+              <ProductCardImagePreview
+                src={data.image}
+                alt=""
+                width={75}
+                height={75}
+              />
             </ProductCardImagePreviewContainer>
           ))}
       </ProductImagePreviewContainer>
@@ -81,7 +80,12 @@ export function ProductsImage({ image, discount }: IProductImageProps) {
             {`${String(discount).padStart(2, "0")}%`}
           </ProductCardPercentDiscount>
         )}
-        <ProductCardImage src={activeImage?.image as string} alt="" />
+        <ProductCardImage
+          src={activeImage?.image as string}
+          alt=""
+          width={300}
+          height={400}
+        />
       </ProductImageContainer>
     </ProductsImagesContainer>
   );
