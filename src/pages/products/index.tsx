@@ -6,14 +6,14 @@ import {
   ProductsContainer,
   ProductsProductsFilterContainer,
 } from "@/styles/pages/Products";
-import { GetStaticProps } from "next";
-import { randomUUID } from "crypto";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { CategoriesContext } from "@/contexts/Categories";
 import { IProduct } from "@/interfaces/IProduct";
-import { PRODUCT_IMAGES } from "@/utils/productImages";
 import { ProductsContext } from "@/contexts/Products";
 import { PageBanner } from "@/components/PageBanner";
+import { CATEGORIES } from "@/api/categories";
+import { PRODUCTS } from "@/api/products";
 
 interface ProductsProps {
   categories: ICategorie[];
@@ -53,35 +53,14 @@ export default function Products({ categories, products }: ProductsProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const categorieResponse = await fetch(
-    "https://fakestoreapi.com/products/categories"
-  );
-  const categorieData = await categorieResponse.json();
-
-  const categories = categorieData.map((category: string) => {
-    return {
-      id: randomUUID(),
-      name: category,
-    };
-  }) as ICategorie[];
-
-  const productsResponse = await fetch("https://fakestoreapi.com/products");
-  const productsData = await productsResponse.json();
-
-  const products = productsData.map((product: IProduct) => {
-    return {
-      ...product,
-      image: PRODUCT_IMAGES.find((image) => image.id === product.id)?.image,
-      oldPrice: product.price + 10,
-    };
-  });
+export const getServerSideProps: GetServerSideProps = async () => {
+  const categories = CATEGORIES;
+  const products = PRODUCTS;
 
   return {
     props: {
       categories,
       products,
     },
-    revalidate: 60 * 60 * 2,
   };
 };

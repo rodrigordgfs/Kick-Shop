@@ -10,13 +10,13 @@ interface ICartContext {
   subtotal: number;
   total: number;
   coupon: ICoupon | null;
-  handleUpdateCart: (id: number, quantity: number) => void;
+  handleUpdateCart: (id: string, quantity: number) => void;
   handleUpdateQuantityCart: (
-    id: number,
+    id: string,
     action: "add" | "remove",
     quantity?: number
   ) => void;
-  handleRemoveProductCart: (id: number) => void;
+  handleRemoveProductCart: (id: string) => void;
   handleValidateCoupon: (code: string) => void;
 }
 
@@ -63,7 +63,7 @@ export function CartContextProvider({ children }: ICartContextProps) {
 
   const total = coupon ? subtotal - subtotal * coupon.discount : subtotal;
 
-  function handleUpdateCart(id: number, quantity: number) {
+  function handleUpdateCart(id: string, quantity: number) {
     const productCart = cart.find((product) => product.id === id);
 
     if (productCart) {
@@ -92,7 +92,7 @@ export function CartContextProvider({ children }: ICartContextProps) {
   }
 
   function handleUpdateQuantityCart(
-    id: number,
+    id: string,
     action: "add" | "remove",
     quantity?: number
   ) {
@@ -121,8 +121,6 @@ export function CartContextProvider({ children }: ICartContextProps) {
   }
 
   function handleValidateCoupon(code: string) {
-    console.log(code);
-
     const coupon = couponList.find(
       (coupon) =>
         String(coupon.code).toUpperCase() === String(code).toUpperCase()
@@ -143,7 +141,7 @@ export function CartContextProvider({ children }: ICartContextProps) {
     }
   }
 
-  function handleRemoveProductCart(id: number) {
+  function handleRemoveProductCart(id: string) {
     setCart((cart) => {
       return cart.filter((product) => product.id !== id);
     });

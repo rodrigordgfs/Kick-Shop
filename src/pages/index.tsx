@@ -1,17 +1,17 @@
 import { SliderProducts } from "@/components/Home/SliderProducts";
 import { ICategorie } from "@/interfaces/ICategories";
 import { HomeContainer } from "@/styles/pages/Home";
-import { GetStaticProps } from "next";
-import { randomUUID } from "crypto";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useContext, useEffect } from "react";
 import { CategoriesContext } from "@/contexts/Categories";
 import { Benefits } from "@/components/Home/Benefits";
 import { FlashSales } from "@/components/Home/FlashSales";
 import { IProduct } from "@/interfaces/IProduct";
-import { PRODUCT_IMAGES } from "@/utils/productImages";
 import { ProductsContext } from "@/contexts/Products";
 import { TabsProducts } from "@/components/Home/TabsProducts";
+import { CATEGORIES } from "@/api/categories";
+import { PRODUCTS } from "@/api/products";
 
 interface HomeProps {
   categories: ICategorie[];
@@ -24,7 +24,6 @@ export default function Home({ categories, products }: HomeProps) {
 
   useEffect(() => {
     handleUpdateProducts(products);
-    handleUpdateCategories(categories);
   }, [categories, products, handleUpdateCategories, handleUpdateProducts]);
 
   return (
@@ -45,37 +44,14 @@ export default function Home({ categories, products }: HomeProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const categorieResponse = await fetch(
-    "https://fakestoreapi.com/products/categories"
-  );
-  const categorieData = await categorieResponse.json();
-
-  const categories = categorieData.map((category: string) => {
-    return {
-      id: randomUUID(),
-      name: category,
-    };
-  }) as ICategorie[];
-
-  const productsResponse = await fetch(
-    "https://fakestoreapi.com/products?limit=8"
-  );
-  const productsData = await productsResponse.json();
-
-  const products = productsData.map((product: IProduct) => {
-    return {
-      ...product,
-      image: PRODUCT_IMAGES.find((image) => image.id === product.id)?.image,
-      oldPrice: product.price + 10,
-    };
-  });
+export const getServerSideProps: GetServerSideProps = async () => {
+  const categories = CATEGORIES;
+  const products = PRODUCTS.slice(0, 8);
 
   return {
     props: {
       categories,
       products,
     },
-    revalidate: 60 * 60 * 2,
   };
 };

@@ -70,7 +70,7 @@ export function CartList() {
                 <CartListItemInfoContainer>
                   <CartListItemInfoImageContainer>
                     <CartListItemInfoImage
-                      src={productData?.image as string}
+                      src={productData?.images[0].url as string}
                       alt=""
                       width={60}
                       height={60}

@@ -1,7 +1,6 @@
 import { BillingAddress } from "@/components/Checkout/BillingAddress";
 import { OrderSummaryCheckout } from "@/components/Checkout/OrderSummaryCheckout";
 import { PageBanner } from "@/components/PageBanner";
-import { CartContext } from "@/contexts/Cart";
 import { CategoriesContext } from "@/contexts/Categories";
 import { ICategorie } from "@/interfaces/ICategories";
 import {
@@ -10,11 +9,11 @@ import {
   CheckoutInfoContainer,
   CheckoutWrapper,
 } from "@/styles/pages/Checkout";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useContext, useEffect } from "react";
-import { randomUUID } from "crypto";
 import { PaymentMethod } from "@/components/Checkout/PaymentMethod";
+import { CATEGORIES } from "@/api/categories";
 
 interface CheckoutProps {
   categories: ICategorie[];
@@ -56,23 +55,12 @@ export default function Checkout({ categories }: CheckoutProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const categorieResponse = await fetch(
-    "https://fakestoreapi.com/products/categories"
-  );
-  const categorieData = await categorieResponse.json();
-
-  const categories = categorieData.map((category: string) => {
-    return {
-      id: randomUUID(),
-      name: category,
-    };
-  }) as ICategorie[];
+export const getServerSideProps: GetServerSideProps = async () => {
+  const categories = CATEGORIES;
 
   return {
     props: {
       categories,
     },
-    revalidate: 60 * 60 * 2,
   };
 };

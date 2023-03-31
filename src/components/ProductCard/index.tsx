@@ -33,7 +33,12 @@ export function ProductCard({ product }: ProductCardProps) {
             {String(discount).padStart(2, "0")}%
           </ProductCardPercentDiscount>
         )}
-        <ProductCardImage src={product.image} alt="" />
+        <ProductCardImage
+          src={product.images[0].url}
+          alt=""
+          width={100}
+          height={130}
+        />
       </ProductCardImageContiner>
       <ProductCardTitle>{product.title}</ProductCardTitle>
       <ProductCardPrices>
